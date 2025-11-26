@@ -30,9 +30,9 @@
         <div class="col-md-2">
             <label class="form-label">Gender: </label>
             <select name="gender">
-                <option>male</option>
-                <option>female</option>
-                <option>prefer not to say</option>
+                <option value="1">male</option>
+                <option value="2">female</option>
+                <option value="3">prefer not to say</option>
             </select>
         </div><br>
 

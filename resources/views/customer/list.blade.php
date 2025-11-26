@@ -6,7 +6,7 @@
 
 <body>
 <div class="container">
-    <div><a href="{{route('customer.add')}}">ADD</a></div>
+    <div><a href="{{route('customer.add')}}" class="btn btn-info">ADD</a></div>
 
     <table class="table table-striped">
         <thead class="table-dark">
@@ -44,8 +44,10 @@
                 <td>{{$customer->lat}}</td>
                 <td>{{$customer->lan}}</td>
                 <td>
-                    <a href="{{route('customer.show', ['customer' => $customer])}}">Edit</a>
-                    <a href="{{route('customer.delete', ['customer' => $customer])}}">Delete</a>
+                    <div class="d-grid gap-2">
+                        <a href="{{route('customer.show', ['customer' => $customer])}}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{route('customer.delete', ['customer' => $customer])}}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
                 </td>
             </tr>
         @endforeach
