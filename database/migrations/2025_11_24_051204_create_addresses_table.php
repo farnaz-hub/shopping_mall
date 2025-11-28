@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->integer('customer_id');      //foreign key???
+            $table->integer('customer_id');
             $table->text('address');
             $table->bigInteger('postal_code');
             $table->integer('unit');

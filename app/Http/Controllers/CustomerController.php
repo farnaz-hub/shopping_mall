@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\city;
 use App\Models\Customer;
+use App\Models\Province;
 use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
     public function add(){
-        return view('customer.add');
+        $provinces = Province::all();
+        $cities = city::all();
+        return view('customer.add', compact('provinces', 'cities'));
     }
 
 

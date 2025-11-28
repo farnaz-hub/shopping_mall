@@ -3,10 +3,9 @@
     <link href="{{asset('files/bootstrap.min.css')}}" rel="stylesheet">
     <script src="{{asset('files/bootstrap.bundle.min.js')}}"></script>
 </head>
-
 <body>
 <div class="container">
-    <div><a href="{{route('customer.add')}}" class="btn btn-info">ADD</a></div>
+    <div class="mb-2 mt-2"><a href="{{route('customer.add')}}" class="btn btn-info">ADD</a></div>
 
     <table class="table table-striped">
         <thead class="table-dark">
@@ -17,8 +16,8 @@
             <th>Gender</th>
             <th>Birth Date</th>
             <th>National Code</th>
-            <th>Province ID</th>
-            <th>City ID</th>
+            <th>Province</th>
+            <th>City</th>
             <th>Job</th>
             <th>Username</th>
             <th>Password</th>

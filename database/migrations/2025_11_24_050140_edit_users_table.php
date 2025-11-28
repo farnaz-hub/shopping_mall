@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('province_id')->nullable();
             $table->integer('city_id')->nullable();
             $table->string('job')->nullable();
-            $table->string('username');
+            $table->string('username');                            // name & password -->had been set before
             $table->double('lat')->nullable();
             $table->double('lan')->nullable();
         });

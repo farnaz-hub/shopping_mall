@@ -3,10 +3,9 @@
     <link href="{{asset('files/bootstrap.min.css')}}" rel="stylesheet">
     <script src="{{asset('files/bootstrap.bundle.min.js')}}"></script>
 </head>
-
 <body>
-<div class="container mt-3">
-    <form method="post" action="{{route('customer.save')}}">
+<div class="container">
+    <form method="post" action="{{route('user.save')}}">
         @csrf
 
         <div class="row-cols-1">
@@ -30,7 +29,7 @@
 
 
             <div class="form-floating mb-3 mt-3">
-                <select class="form-select" name="gender">
+                <select class="form-control" name="gender">
                     <option value="1">male</option>
                     <option value="2">female</option>
                     <option value="3">prefer not to say</option>
@@ -40,14 +39,14 @@
 
 
             <div class="form-floating mb-3 mt-3">
-                <input class="form-control" name="birth_date" type="date" placeholder="birth_date">
+                <input class="form-control" name="birth_date" placeholder="birth_date" type="date">
                 <label>Birth Date: </label>
             </div>
 
 
             <div class="form-floating mb-3 mt-3">
                 <input class="form-control" name="national_code" placeholder="optional">
-                <label>National Code: </label>
+                <label>National Code:</label>
             </div>
 
 
@@ -99,6 +98,7 @@
                 <input class="form-control" name="lan" placeholder="lan">
                 <label>LAN: </label>
             </div>
+
 
             <div>
                 <button type="submit" class="btn btn-success btn-lg">submit</button>
