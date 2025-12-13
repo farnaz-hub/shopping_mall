@@ -5,7 +5,7 @@
 
     <table class="table table-striped">
         <thead class="table-dark">
-        <tr>
+        <tr class="text-center">
             <th>Name</th>
             <th>Family</th>
             <th>Mobile</th>
@@ -24,7 +24,7 @@
         </thead>
 
         @foreach($customers as $customer)
-            <tr>
+            <tr class="text-center">
                 <td>{{$customer->name}}</td>
                 <td>{{$customer->family}}</td>
                 <td>{{$customer->mobile}}</td>
@@ -42,9 +42,16 @@
                     <div class="d-grid gap-2">
                         <a href="{{route('customer.show', ['customer' => $customer])}}" class="btn btn-warning btn-sm">Edit</a>
                         <a href="{{route('customer.delete', ['customer' => $customer])}}" class="btn btn-danger btn-sm">Delete</a>
+                        <a class="btn btn-success btn-sm" onclick="Addresses();">Addresses</a>
                     </div>
                 </td>
             </tr>
         @endforeach
     </table>
+
+<script>
+    function Addresses(){
+
+    }
+</script>
 @endsection

@@ -112,41 +112,78 @@
             <input name="lan" type="hidden" class="form-control" placeholder="lan">
 
 
-            <div class="address-tmp full-address hidden">
+            <div class="address-tmp full-address hidden">  {{-- empty template for + button --}}
 
-                <input name="address_id[]" value="" type="hidden"> //to stop the repetition of ids
+                <input name="address_id[]" value="" type="hidden">  {{-- to stop the repetition of ids --}}
 
                 <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
                     <label>Address title</label>
                     <input name="title[]" id="title" placeholder="title" class="form-control has-feedback-left"
-                           value="{{$customer->title}}">
+                           value="">
                 </div>
 
                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
                     <label>Full address</label>
                     <input name="address[]" id="address" placeholder="address" class="form-control has-feedback-left"
-                           value="{{$customer->address}}">
+                           value="">
                 </div>
 
                 <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
                     <label>Postal code</label>
                     <input name="postal_code[]" id="postal_code" placeholder="postal_code"
                            class="form-control has-feedback-left"
-                           value="{{$customer->postal_code}}">
+                           value="">
                 </div>
 
                 <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
                     <label>Unit</label>
                     <input name="unit[]" id="unit" placeholder="unit" class="form-control has-feedback-left"
-                           value="{{$customer->unit}}">
+                           value="">
                 </div>
 
                 <div class="center">
                     <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+</button>
-                    <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-
-                    </button>
+                    <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-</button>
                 </div>
             </div>
+
+            @if(! $customer->addresses()->count())    {{-- For those who dosent have address --}}
+                <div class="address-tmp">
+
+                    <input name="address_id[]" value="" type="hidden">
+
+                    <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                        <label>Address title</label>
+                        <input name="title[]" id="title" placeholder="title" class="form-control has-feedback-left"
+                               value="">
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                        <label>Full address</label>
+                        <input name="address[]" id="address" placeholder="address" class="form-control has-feedback-left"
+                               value="">
+                    </div>
+
+                    <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                        <label>Postal code</label>
+                        <input name="postal_code[]" id="postal_code" placeholder="postal_code"
+                               class="form-control has-feedback-left"
+                               value="">
+                    </div>
+
+                    <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                        <label>Unit</label>
+                        <input name="unit[]" id="unit" placeholder="unit" class="form-control has-feedback-left"
+                               value="">
+                    </div>
+
+                    <div class="center">
+                        <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+</button>
+                        <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-
+                        </button>
+                    </div>
+                </div>
+            @endif
 
             <div class="addresses">
                 @foreach($customer->addresses as $address)
@@ -184,9 +221,7 @@
                             <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+
                             </button>
                             @if($loop->index)
-                                <button class="btn btn-danger" style="margin: 20px"
-                                        onclick="removeAddress(this);return false">-
-                                </button>
+                                <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-</button>
                             @endif
                         </div>
                     </div>

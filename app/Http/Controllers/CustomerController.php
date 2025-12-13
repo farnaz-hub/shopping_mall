@@ -90,7 +90,7 @@ class CustomerController extends Controller
         $addresses = $request->get('address', []);
         $address_ids = $request->get('address_id', []);                //getting address from form
 
-        $address_id_in_db = $customer->addresses()->pluck('id')->toArray(); //all of previous customers addresses
+        $address_id_in_db = $customer->addresses()->pluck('id')->toArray(); //all of previous customers addresses //address function came from Customer model
         $deleted_ids = array_diff($address_id_in_db, $address_ids);     //$address_ids = list of ids that came from view
         foreach ($deleted_ids as $deleted_id){
             $address = Address::find($deleted_id);
@@ -118,7 +118,7 @@ class CustomerController extends Controller
 
             }
         }
-        
+
         return redirect(route('customer.list'));
     }
 
