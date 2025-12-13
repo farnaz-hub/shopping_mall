@@ -1,10 +1,6 @@
-<html>
-<head>
-    <link href="{{asset('files/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('files/bootstrap.bundle.min.js')}}"></script>
-</head>
-<body>
-<div class="container">
+@extends('layout')
+
+@section('content')
     <div class="mb-2 mt-2"><a href="{{route('brand.add')}}" class="btn btn-info">ADD</a></div>
 
     <table class="table table-striped">
@@ -27,6 +23,4 @@
             </tr>
         @endforeach
     </table>
-</div>
-</body>
-</html>
+@endsection

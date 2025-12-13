@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\city;
 use App\Models\Customer;
 use App\Models\Province;
@@ -17,7 +18,7 @@ class CustomerController extends Controller
 
 
     public function save(Request $request){
-        Customer::create([
+        $customer = Customer::create([
             'name' =>$request->get('name'),
             'family' =>$request->get('family'),
             'mobile' =>$request->get('mobile'),
@@ -33,6 +34,23 @@ class CustomerController extends Controller
             'lan' =>$request->get('lan'),
         ]);
 
+        $postal_codes = $request->get('postal_code');
+        $units = $request->get('unit');
+        $titles = $request->get('title');
+        $addresses = $request->get('address', []);
+        foreach ($addresses as $index => $address) {
+            if(! empty($address)){
+                Address::create([
+                    'customer_id' => $customer->id,
+                    'address' => $address,
+                    'postal_code' =>$postal_codes[$index],
+                    'unit' =>$units[$index],
+                    'title' =>$titles[$index],
+                ]);
+            }
+        }
+
+
         return redirect(route('customer.list'));
     }
 
@@ -44,7 +62,9 @@ class CustomerController extends Controller
 
 
     public function show(Customer $customer){
-        return view('customer.edit', compact('customer'));
+        $provinces = Province::all();
+        $cities = city::all();
+        return view('customer.edit', compact('customer', 'provinces', 'cities'));
     }
 
 
@@ -64,6 +84,41 @@ class CustomerController extends Controller
         $customer->lan = $request->get('lan');
         $customer->update();
 
+        $postal_codes = $request->get('postal_code');
+        $units = $request->get('unit');
+        $titles = $request->get('title');
+        $addresses = $request->get('address', []);
+        $address_ids = $request->get('address_id', []);                //getting address from form
+
+        $address_id_in_db = $customer->addresses()->pluck('id')->toArray(); //all of previous customers addresses
+        $deleted_ids = array_diff($address_id_in_db, $address_ids);     //$address_ids = list of ids that came from view
+        foreach ($deleted_ids as $deleted_id){
+            $address = Address::find($deleted_id);
+            $address->delete();
+        }
+
+        foreach ($addresses as $index => $address) {
+            if(! empty($address_ids[$index]) && ! empty($address)){
+                $old_address = Address::find($address_ids[$index]);
+                $old_address->title = $titles[$index];
+                $old_address->postal_code = $postal_codes[$index];
+                $old_address->unit = $units[$index];
+                $old_address->address = $address;
+                $old_address->update();
+            } else{
+                if(! empty($address)){
+                    Address::create([
+                        'customer_id' => $customer->id,
+                        'address' => $address,
+                        'postal_code' =>$postal_codes[$index],
+                        'unit' =>$units[$index],
+                        'title' =>$titles[$index],
+                    ]);
+                }
+
+            }
+        }
+        
         return redirect(route('customer.list'));
     }
 

@@ -1,10 +1,6 @@
-<html>
-<head>
-    <link href="{{asset('files/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('files/bootstrap.bundle.min.js')}}"></script>
-</head>
-<body>
-<div class="container">
+@extends('layout')
+
+@section('content')
     <div class="mb-2 mt-2"><a href="{{route('customer.add')}}" class="btn btn-info">ADD</a></div>
 
     <table class="table table-striped">
@@ -20,9 +16,9 @@
             <th>City</th>
             <th>Job</th>
             <th>Username</th>
-            <th>Password</th>
-            <th>LAT</th>
-            <th>LAN</th>
+            {{-- <th>Password</th> --}}
+            {{-- <th>LAT</th> --}}
+            {{-- <th>LAN</th> --}}
             <th>Operations</th>
         </tr>
         </thead>
@@ -39,9 +35,9 @@
                 <td>{{$customer->city_id}}</td>
                 <td>{{$customer->job}}</td>
                 <td>{{$customer->username}}</td>
-                <td>{{$customer->password}}</td>
-                <td>{{$customer->lat}}</td>
-                <td>{{$customer->lan}}</td>
+                {{-- <td>{{$customer->password}}</td> --}}
+                {{-- <td>{{$customer->lat}}</td> --}}
+                {{-- <td>{{$customer->lan}}</td> --}}
                 <td>
                     <div class="d-grid gap-2">
                         <a href="{{route('customer.show', ['customer' => $customer])}}" class="btn btn-warning btn-sm">Edit</a>
@@ -51,5 +47,4 @@
             </tr>
         @endforeach
     </table>
-</div>
-</body>
+@endsection

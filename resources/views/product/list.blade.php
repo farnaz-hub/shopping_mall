@@ -1,10 +1,6 @@
-<html>
-<head>
-    <link href="{{asset('files/bootstrap.min.css')}}" rel="stylesheet">
-    <script src="{{asset('files/bootstrap.bundle.min.js')}}"></script>
-</head>
-<body>
-<div class="container">
+@extends('layout')
+
+@section('content')
     <div class="mb-2 mt-2"><a href="{{route('product.add')}}" class="btn btn-info">ADD</a></div>
 
     <table class="table table-striped">
@@ -29,9 +25,9 @@
                 <td>{{$product->slug}}</td>
                 <td>{{$product->image}}</td>
                 <td>{{$product->brand_id}}</td>
-                <td>{{$product->unlimited_inventory}}</td>
-                <td>{{$product->max_order}}</td>
-                <td>{{$product->warning_border}}</td>
+                <td class="text-center">{{$product->unlimited_inventory}}</td>
+                <td class="text-center">{{$product->max_order}}</td>
+                <td class="text-center">{{$product->warning_border}}</td>
                 <td>
                     <div class="d-grid gap-2">
                         <a href="{{route('product.show', ['product' => $product])}}" class="btn btn-warning btn-sm">Edit</a>
@@ -41,6 +37,4 @@
             </tr>
         @endforeach
     </table>
-</div>
-</body>
-</html>
+@endsection

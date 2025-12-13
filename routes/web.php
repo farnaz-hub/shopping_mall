@@ -33,3 +33,5 @@ Route::get('/product/list', [\App\Http\Controllers\ProductController::class, 'li
 Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
 Route::post('/product/update/{product}', [\App\Http\Controllers\ProductController::class, 'update'])->name('product.update');
 Route::get('/product/delete/{product}', [\App\Http\Controllers\ProductController::class, 'delete'])->name('product.delete');
+
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'enter'])->name('home');

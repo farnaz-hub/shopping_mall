@@ -27,7 +27,7 @@ class BrandController extends Controller
     }
 
 
-    public function show(brand $brand){
+    public function show(Brand $brand){
         return view('brand.edit', compact('brand'));
     }
 

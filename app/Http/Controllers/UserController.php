@@ -44,7 +44,9 @@ class UserController extends Controller
 
 
     public function show(User $user){
-        return view('user.edit', compact('user'));
+        $provinces = Province::all();
+        $cities = City::all();
+        return view('user.edit', compact('user', 'provinces', 'cities'));
     }
 
 
