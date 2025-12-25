@@ -66,6 +66,12 @@
 
                             <li><a href="{{route('brand.list')}}"><i class="fa fa-braille"></i> Brand <span class="fa fa-chevron"></span></a></li>
 
+                            <li><a href="{{route('ticket.list')}}"><i class="fa fa-tags"></i> Ticket <span class="fa fa-chevron"></span></a></li>
+
+                            <li><a href="{{route('type.list')}}"><i class="fa fa-magic"></i> Type <span class="fa fa-chevron"></span></a></li>
+
+                            <li><a href="{{route('category.list')}}"><i class="fa fa-fax"></i> Category <span class="fa fa-chevron"></span></a></li>
+
                         </ul>
                     </div>
                 </div>

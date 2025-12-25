@@ -3,65 +3,65 @@
 @section('content')
     <div class="container-fluid">
         <br/>
-        <form method="post" action="{{route('customer.save')}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form method="post" action="{{route('customer.save')}}">
             @csrf
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Name</label>
-                <input  name="name" type="text" id="name" placeholder="name" class="form-control has-feedback-left">
+                <input  name="name" type="text" id="name" placeholder="name" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Family</label>
-                <input  name="family" type="text" id="family" placeholder="family" class="form-control has-feedback-left">
+                <input  name="family" type="text" id="family" placeholder="family" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Mobile</label>
-                <input  name="mobile" type="text" id="mobile" placeholder="mobile" class="form-control has-feedback-left">
+                <input  name="mobile" type="text" id="mobile" placeholder="mobile" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Gender</label>
                 <div id="gender" class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <label class="btn btn-default">
                         <input name="gender" type="radio" value="1">male
                     </label>
-                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <label class="btn btn-default">
                         <input name="gender" type="radio" value="2">female
                     </label>
-                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <label class="btn btn-default">
                         <input name="gender" type="radio" value="3">prefer not to say
                     </label>
                 </div>
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Birth Date</label>
-                <input  name="birth_date" type="date" id="birth_date" placeholder="birth_date" class="form-control has-feedback-left">
+                <input  name="birth_date" type="date" id="birth_date" placeholder="birth_date" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>National Code</label>
-                <input  name="national_code" type="text" id="national_code" placeholder="national_code" class="form-control has-feedback-left">
+                <input  name="national_code" type="text" id="national_code" placeholder="national_code" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Job</label>
-                <input  name="job" type="text" id="job" placeholder="job" class="form-control has-feedback-left">
+                <input  name="job" type="text" id="job" placeholder="job" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Province</label>
-                <select class="form-control has-feedback-left" name="province_id">
+                <select class="form-control" name="province_id">
                     @foreach($provinces as $province)
                         <option value="{{$province->id}}"> {{$province->name}} </option>
                     @endforeach
@@ -69,9 +69,9 @@
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>City</label>
-                <select class="form-control has-feedback-left" name="city_id">
+                <select class="form-control" name="city_id">
                     @foreach($cities as $city)
                         <option value="{{$city->id}}"> {{$city->name}} </option>
                     @endforeach
@@ -79,15 +79,15 @@
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Username</label>
-                <input  name="username" type="text" id="username" placeholder="username" class="form-control has-feedback-left">
+                <input  name="username" type="text" id="username" placeholder="username" class="form-control">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Password</label>
-                <input  name="password" type="password" id="password" placeholder="password" class="form-control has-feedback-left">
+                <input  name="password" type="password" id="password" placeholder="password" class="form-control">
             </div>
 
 
@@ -98,24 +98,24 @@
 
 
             <div>
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Address title</label>
-                    <input name="title[]" id="title" placeholder="title" class="form-control has-feedback-left">
+                    <input name="title[]" id="title" placeholder="title" class="form-control">
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-4 col-sm-6 col-xs-12 form-group">
                     <label>Full address</label>
-                    <input name="address[]" id="address" placeholder="address" class="form-control has-feedback-left">
+                    <input name="address[]" id="address" placeholder="address" class="form-control">
                 </div>
 
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Postal code</label>
-                    <input name="postal_code[]" id="postal_code" placeholder="postal_code" class="form-control has-feedback-left">
+                    <input name="postal_code[]" id="postal_code" placeholder="postal_code" class="form-control">
                 </div>
 
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Unit</label>
-                    <input name="unit[]" id="unit" placeholder="unit" class="form-control has-feedback-left">
+                    <input name="unit[]" id="unit" placeholder="unit" class="form-control">
                 </div>
 
                 <div class="center">
@@ -125,24 +125,24 @@
 
 
             <div class="address-tmp full-address hidden">
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Address title</label>
-                    <input name="title[]" id="title" placeholder="title" class="form-control has-feedback-left">
+                    <input name="title[]" id="title" placeholder="title" class="form-control">
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-4 col-sm-6 col-xs-12 form-group">
                     <label>Full address</label>
-                    <input name="address[]" id="address" placeholder="address" class="form-control has-feedback-left">
+                    <input name="address[]" id="address" placeholder="address" class="form-control">
                 </div>
 
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Postal code</label>
-                    <input name="postal_code[]" id="postal_code" placeholder="postal_code" class="form-control has-feedback-left">
+                    <input name="postal_code[]" id="postal_code" placeholder="postal_code" class="form-control">
                 </div>
 
-                <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                <div class="col-md-2 col-sm-6 col-xs-12 form-group">
                     <label>Unit</label>
-                    <input name="unit[]" id="unit" placeholder="unit" class="form-control has-feedback-left">
+                    <input name="unit[]" id="unit" placeholder="unit" class="form-control">
                 </div>
 
                 <div class="center">
@@ -154,7 +154,7 @@
             <div class="addresses"></div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <button type="submit" class="btn btn-success" style="margin: 20px">submit</button>
             </div>
         </form>

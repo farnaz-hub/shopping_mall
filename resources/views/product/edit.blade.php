@@ -3,37 +3,37 @@
 @section('content')
     <div class="x_content">
         <br/>
-        <form method="post" action="{{route('product.update', ['product' => $product])}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form method="post" action="{{route('product.update', ['product' => $product])}}">
             @csrf
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Title</label>
-                <input  name="title" type="text" id="title" placeholder="title" class="form-control has-feedback-left"
+                <input  name="title" type="text" id="title" placeholder="title" class="form-control"
                         value="{{$product->title}}">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label for="description">Description</label>
-                <textarea name="description" type="text" id="description" placeholder="description" class="form-control has-feedback-left">{{$product->description}}</textarea>
+                <textarea name="description" type="text" id="description" placeholder="description" class="form-control">{{$product->description}}</textarea>
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Slug</label>
-                <input  name="slug" type="text" id="slug" placeholder="slug" class="form-control has-feedback-left"
+                <input  name="slug" type="text" id="slug" placeholder="slug" class="form-control"
                         value="{{$product->slug}}">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Image</label>
-                <input  name="image" type="text" id="image" placeholder="image" class="form-control has-feedback-left"
+                <input  name="image" type="text" id="image" placeholder="image" class="form-control"
                         value="{{$product->image}}">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Brand</label>
                 <select class="form-control" name="brand_id">
                     @foreach($brands as $brand)
@@ -43,28 +43,28 @@
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Max Order</label>
-                <input  name="max_order" type="text" id="max_order" placeholder="max_order" class="form-control has-feedback-left"
+                <input  name="max_order" type="text" id="max_order" placeholder="max_order" class="form-control"
                         value="{{$product->max_order}}">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Warning Border</label>
-                <input  name="warning_border" type="text" id="warning_border" placeholder="warning_border" class="form-control has-feedback-left"
+                <input  name="warning_border" type="text" id="warning_border" placeholder="warning_border" class="form-control"
                         value="{{$product->warning_border}}">
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Unlimited Inventory</label>
-                <input name="unlimited_inventory" type="checkbox" class="form-check-input has-feedback"
+                <input name="unlimited_inventory" type="checkbox" class="form-check-input"
                        value="1" @if($product->unlimited_inventory) checked @endif>
             </div>
 
 
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <button type="submit" class="btn btn-success">submit</button>
             </div>
         </form>

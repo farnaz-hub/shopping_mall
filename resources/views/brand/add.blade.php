@@ -1,9 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <div class="x_content">
-        <br/>
-        <form method="post" action="{{route('brand.save')}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+    <div class="container-fluid">
+        <form method="post" action="{{route('brand.save')}}">
             @csrf
 
             <div class="form-group">
