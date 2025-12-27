@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-        <br/>
         <form method="post" action="{{route('customer.save')}}">
             @csrf
 

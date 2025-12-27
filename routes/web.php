@@ -63,3 +63,10 @@ Route::get('/address/list/{customer}', [\App\Http\Controllers\AddressController:
 Route::get('/address/{address}', [\App\Http\Controllers\AddressController::class, 'show'])->name('address.show');
 Route::post('/address/update/{address}', [\App\Http\Controllers\AddressController::class, 'update'])->name('address.update');
 Route::delete('/address/delete/{address}', [\App\Http\Controllers\AddressController::class, 'delete'])->name('address.delete');
+
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'form'])->name('login.form');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
+
+Route::get('/message/add/{ticket}', [\App\Http\Controllers\MessageController::class, 'add'])->name('message.add');
+Route::post('/message/save', [\App\Http\Controllers\MessageController::class, 'save'])->name('message.save');
+Route::get('/message/list', [\App\Http\Controllers\MessageController::class, 'list'])->name('message.list');

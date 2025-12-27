@@ -9,11 +9,11 @@
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Title</th>
-                <th>Address</th>
-                <th>Postal Code</th>
-                <th>Unit</th>
-                <th>Operations</th>
+                <th class="text-center">Title</th>
+                <th class="text-center">Address</th>
+                <th class="text-center">Postal Code</th>
+                <th class="text-center">Unit</th>
+                <th class="text-center">Operations</th>
             </tr>
             </thead>
 
