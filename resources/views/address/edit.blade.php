@@ -26,7 +26,9 @@
             </div>
 
             <div>
-                <button type="submit" style="margin: 20px" class="btn btn-success" onclick="updateAddress(this); return false;">Submit</button>
+                <button type="submit" style="margin: 20px" class="btn btn-success"
+                        onclick="updateAddress(this); return false;">Submit
+                </button>
             </div>
         </form>
     </div>

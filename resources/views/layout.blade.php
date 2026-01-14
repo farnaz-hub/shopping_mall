@@ -58,20 +58,29 @@
                     <div class="menu_section">
                         <ul class="nav side-menu">
 
-                            <li><a href="{{route('customer.list')}}"><i class="fa fa-user"></i> Customer <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('customer.list')}}"><i class="fa fa-user"></i> Customers <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('user.list')}}"><i class="fa fa-user-circle-o"></i> User <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('user.list')}}"><i class="fa fa-user-circle-o"></i> Users <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('product.list')}}"><i class="fa fa-product-hunt"></i> Product <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('product.list')}}"><i class="fa fa-product-hunt"></i> Products <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('brand.list')}}"><i class="fa fa-braille"></i> Brand <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('brand.list')}}"><i class="fa fa-braille"></i> Brands <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('ticket.list')}}"><i class="fa fa-tags"></i> Ticket <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('ticket.list')}}"><i class="fa fa-tags"></i> Tickets <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('type.list')}}"><i class="fa fa-magic"></i> Type <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('type.list')}}"><i class="fa fa-magic"></i> Types <span
+                                        class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('category.list')}}"><i class="fa fa-fax"></i> Category <span class="fa fa-chevron"></span></a></li>
+                            <li><a href="{{route('category.list')}}"><i class="fa fa-fax"></i> Categories <span
+                                        class="fa fa-chevron"></span></a></li>
 
+                            <li><a href="{{route('task.list')}}"><i class="fa fa-tasks"></i> Tasks <span
+                                        class="fa fa-chevron"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,70 +145,70 @@
             @yield('content')
         </div>
     </div>
-        <!-- /page content -->
+    <!-- /page content -->
 
 
-<div id="lock_screen">
-    <table>
-        <tr>
-            <td>
-                <div class="clock"></div>
-                <span class="unlock">
+    <div id="lock_screen">
+        <table>
+            <tr>
+                <td>
+                    <div class="clock"></div>
+                    <span class="unlock">
                     <span class="fa-stack fa-5x">
                       <i class="fa fa-square-o fa-stack-2x fa-inverse"></i>
                       <i id="icon_lock" class="fa fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
                 </span>
-            </td>
-        </tr>
-    </table>
-</div>
-<!-- jQuery -->
-<script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
-<!-- NProgress -->
-<script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
-<!-- bootstrap-progressbar -->
-<script src="{{asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
-<!-- iCheck -->
-<script src="{{asset('vendors/iCheck/icheck.min.js')}}"></script>
-
-<!-- bootstrap-daterangepicker -->
-<script src="{{asset('vendors/moment/min/moment.min.js')}}"></script>
-
-<script src="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-
-<!-- Chart.js -->
-<script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
-<!-- jQuery Sparklines -->
-<script src="{{asset('vendors/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-<!-- gauge.js -->
-<script src="{{asset('vendors/gauge.js/dist/gauge.min.js')}}"></script>
-<!-- Skycons -->
-<script src="{{asset('vendors/skycons/skycons.js')}}"></script>
-<!-- Flot -->
-<script src="{{asset('vendors/Flot/jquery.flot.js')}}"></script>
-<script src="{{asset('vendors/Flot/jquery.flot.pie.js')}}"></script>
-<script src="{{asset('vendors/Flot/jquery.flot.time.js')}}"></script>
-<script src="{{asset('vendors/Flot/jquery.flot.stack.js')}}"></script>
-<script src="{{asset('vendors/Flot/jquery.flot.resize.js')}}"></script>
-<!-- Flot plugins -->
-<script src="{{asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
-<script src="{{asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
-<script src="{{asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
-<!-- DateJS -->
-<script src="{{asset('vendors/DateJS/build/production/date.min.js')}}"></script>
-<!-- JQVMap -->
-<script src="{{asset('vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
-<script src="{{asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-<script src="{{asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="{{asset('build/js/custom.min.js')}}"></script>
-
+                </td>
+            </tr>
+        </table>
     </div>
+    <!-- jQuery -->
+    <script src="{{asset('vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{asset('vendors/fastclick/lib/fastclick.js')}}"></script>
+    <!-- NProgress -->
+    <script src="{{asset('vendors/nprogress/nprogress.js')}}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{asset('vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <!-- iCheck -->
+    <script src="{{asset('vendors/iCheck/icheck.min.js')}}"></script>
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{asset('vendors/moment/min/moment.min.js')}}"></script>
+
+    <script src="{{asset('vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+    <!-- Chart.js -->
+    <script src="{{asset('vendors/Chart.js/dist/Chart.min.js')}}"></script>
+    <!-- jQuery Sparklines -->
+    <script src="{{asset('vendors/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+    <!-- gauge.js -->
+    <script src="{{asset('vendors/gauge.js/dist/gauge.min.js')}}"></script>
+    <!-- Skycons -->
+    <script src="{{asset('vendors/skycons/skycons.js')}}"></script>
+    <!-- Flot -->
+    <script src="{{asset('vendors/Flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('vendors/Flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{asset('vendors/Flot/jquery.flot.time.js')}}"></script>
+    <script src="{{asset('vendors/Flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{asset('vendors/Flot/jquery.flot.resize.js')}}"></script>
+    <!-- Flot plugins -->
+    <script src="{{asset('vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
+    <script src="{{asset('vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
+    <script src="{{asset('vendors/flot.curvedlines/curvedLines.js')}}"></script>
+    <!-- DateJS -->
+    <script src="{{asset('vendors/DateJS/build/production/date.min.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{asset('vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
+    <script src="{{asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{asset('build/js/custom.min.js')}}"></script>
+
+</div>
 </body>
 </html>

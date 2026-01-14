@@ -1,15 +1,16 @@
 @extends('layout')
-
 @section('content')
     <div class="x_content">
         <br/>
-        <form method="post" action="{{route('brand.update', ['brand' => $brand])}}" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+        <form method="post" action="{{route('brand.update', ['brand' => $brand])}}" id="demo-form2"
+              data-parsley-validate class="form-horizontal form-label-left">
             @csrf
 
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input  name="title" type="text" id="title" class="form-control col-md-7 col-xs-12" value="{{$brand->title}}">
+                    <input name="title" type="text" id="title" class="form-control col-md-7 col-xs-12"
+                           value="{{$brand->title}}">
                 </div>
             </div>
 

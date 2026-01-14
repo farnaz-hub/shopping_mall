@@ -8,41 +8,46 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function add(){
+    public function add()
+    {
         $brands = Brand::all();
         return view('product.add', compact('brands'));
     }
 
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
         Product::create([
-            'title' =>$request->get('title'),
-            'description' =>$request->get('description'),
-            'slug' =>$request->get('slug'),
-            'image' =>$request->get('image'),
-            'brand_id' =>$request->get('brand_id'),
-            'unlimited_inventory' =>$request->get('unlimited_inventory', 0),
-            'max_order' =>$request->get('max_order'),
-            'warning_border' =>$request->get('warning_border'),
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'slug' => $request->get('slug'),
+            'image' => $request->get('image'),
+            'brand_id' => $request->get('brand_id'),
+            'unlimited_inventory' => $request->get('unlimited_inventory', 0),
+            'max_order' => $request->get('max_order'),
+            'warning_border' => $request->get('warning_border'),
         ]);
 
         return redirect(route('product.list'));
     }
 
 
-    public function list(){
+    public function list()
+    {
         $products = Product::all();
         return view('product.list', compact('products'));
     }
 
 
-    public function show(Product $product){
+    public function show(Product $product)
+    {
         $brands = Brand::all();
         return view('product.edit', compact('product', 'brands'));
     }
 
 
-    public function update(Request $request, Product $product){
+    public function update(Request $request, Product $product)
+    {
         $product->title = $request->get('title');
         $product->description = $request->get('description');
         $product->slug = $request->get('slug');
@@ -57,7 +62,8 @@ class ProductController extends Controller
     }
 
 
-    public function delete(Product $product){
+    public function delete(Product $product)
+    {
         $product->delete();
         return redirect(route('product.list'));
     }

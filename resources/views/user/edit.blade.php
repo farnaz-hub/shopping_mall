@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="x_content">
         <br/>
@@ -8,7 +7,8 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Name</label>
-                <input  name="name" type="text" id="name" placeholder="name" class="form-control" value="{{$user->name}}">
+                <input name="name" type="text" id="name" placeholder="name" class="form-control"
+                       value="{{$user->name}}">
             </div>
 
 
@@ -27,14 +27,18 @@
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Gender</label>
                 <div id="gender" class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default @if($user->gender == 'male') active @endif" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <label class="btn btn-default @if($user->gender == 'male') active @endif"
+                           data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                         <input name="gender" type="radio" value="male" @if($user->gender == 'male') checked @endif>male
                     </label>
-                    <label class="btn btn-default @if($user->gender == 'female') active @endif" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                    <label class="btn btn-default @if($user->gender == 'female') active @endif"
+                           data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                         <input name="gender" type="radio" value="female" @if($user->gender == 'female') checked @endif>female
                     </label>
-                    <label class="btn btn-default @if($user->gender == 'prefer_not_to_say') active @endif" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                        <input name="gender" type="radio" value="prefer_not_to_say" @if($user->gender == 'prefer_not_to_say') checked @endif>prefer not to say
+                    <label class="btn btn-default @if($user->gender == 'prefer_not_to_say') active @endif"
+                           data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                        <input name="gender" type="radio" value="prefer_not_to_say"
+                               @if($user->gender == 'prefer_not_to_say') checked @endif>prefer not to say
                     </label>
                 </div>
             </div>
@@ -49,7 +53,8 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>National Code</label>
-                <input name="national_code" type="text" id="national_code" placeholder="national_code" class="form-control"
+                <input name="national_code" type="text" id="national_code" placeholder="national_code"
+                       class="form-control"
                        value="{{$user->national_code}}">
             </div>
 
@@ -65,7 +70,8 @@
                 <label>Province</label>
                 <select class="form-control" name="province_id">
                     @foreach($provinces as $province)
-                        <option value="{{$province->id}}" @if($province->id == $user->province_id) selected @endif> {{$province->name}} </option>
+                        <option value="{{$province->id}}"
+                                @if($province->id == $user->province_id) selected @endif> {{$province->name}} </option>
                     @endforeach
                 </select>
             </div>
@@ -75,7 +81,8 @@
                 <label>City</label>
                 <select class="form-control" name="city_id">
                     @foreach($cities as $city)
-                        <option value="{{$city->id}}" @if($city->id == $user->city_id) selected @endif> {{$city->name}} </option>
+                        <option value="{{$city->id}}"
+                                @if($city->id == $user->city_id) selected @endif> {{$city->name}} </option>
                     @endforeach
                 </select>
             </div>

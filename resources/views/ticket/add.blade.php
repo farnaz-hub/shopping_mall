@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="container-fluid">
         <form method="post" action="{{route('ticket.save')}}">
@@ -64,7 +63,8 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label for="description">Description</label>
-                <textarea rows="5" name="description" type="text" id="description" placeholder="description" class="form-control"></textarea>
+                <textarea rows="5" name="description" type="text" id="description" placeholder="description"
+                          class="form-control"></textarea>
             </div>
 
 

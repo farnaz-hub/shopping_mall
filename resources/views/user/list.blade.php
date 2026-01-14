@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="mb-2 mt-2"><a href="{{route('user.add')}}" class="btn btn-info">ADD</a></div>
 

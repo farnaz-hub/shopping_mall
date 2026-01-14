@@ -1,8 +1,8 @@
 @extends('layout')
-
 @section('content')
     <div class="container-fluid">
-        <form method="post" action="{{route('customer.update', ['customer' => $customer])}}" class="form-horizontal form-label-left">
+        <form method="post" action="{{route('customer.update', ['customer' => $customer])}}"
+              class="form-horizontal form-label-left">
             @csrf
 
 
@@ -70,7 +70,8 @@
                 <label>Province</label>
                 <select class="form-control" name="province_id">
                     @foreach($provinces as $province)
-                        <option value="{{$province->id}}" @if($province->id == $customer->province_id) selected @endif> {{$province->name}} </option>
+                        <option value="{{$province->id}}"
+                                @if($province->id == $customer->province_id) selected @endif> {{$province->name}} </option>
                     @endforeach
                 </select>
             </div>
@@ -108,7 +109,7 @@
 
             <div class="address-tmp full-address hidden">  {{-- empty template for + button --}}
 
-                <input name="address_id[]" value="" type="hidden">  {{-- to stop the repetition of ids --}}
+                <input name="address_id[]" value="" type="hidden"> {{-- to stop the repetition of ids --}}
 
                 <div class="col-md-2 col-sm-6 col-xs-12 form-group ">
                     <label>Address title</label>
@@ -137,11 +138,13 @@
 
                 <div class="center">
                     <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+</button>
-                    <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-</button>
+                    <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-
+                    </button>
                 </div>
             </div>
 
-            @if(! $customer->addresses()->count())    {{-- For those who dosent have address --}}
+            @if(! $customer->addresses()->count())
+                {{-- For those who dosent have address --}}  {{-- count()-->counting the number of customer's addresses --}}
                 <div class="address-tmp">
 
                     <input name="address_id[]" value="" type="hidden">
@@ -172,8 +175,7 @@
                     </div>
 
                     <div class="center">
-                        <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+</button>
-                        <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-
+                        <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+
                         </button>
                     </div>
                 </div>
@@ -215,7 +217,10 @@
                             <button class="btn btn-success" style="margin: 20px" onclick="addAddress();return false">+
                             </button>
                             @if($loop->index)
-                                <button class="btn btn-danger" style="margin: 20px" onclick="removeAddress(this);return false">-</button>
+                                {{-- hiding remove button for first item --}}
+                                <button class="btn btn-danger" style="margin: 20px"
+                                        onclick="removeAddress(this);return false">-
+                                </button>
                             @endif
                         </div>
                     </div>
@@ -241,99 +246,3 @@
         }
     </script>
 @endsection
-
-
-
-
-
-
-
-{{--
-    <form method="post" action="{{route('customer.update', ['customer' => $customer])}}">
-        @csrf
-
-        <div class="col-md-2">
-            <label class="form-label">Name: </label>
-            <input class="form-control" name="name" placeholder="name" value="{{$customer->name}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Family: </label>
-            <input class="form-control" name="family" placeholder="family" value="{{$customer->family}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Mobile: </label>
-            <input class="form-control" name="mobile" placeholder="mobile" value="{{$customer->mobile}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Gender: </label>
-            <select name="gender">
-                <option value="1">male</option>
-                <option value="2">female</option>
-                <option value="3">prefer not to say</option>
-            </select>
-        </div><br>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Birth Date: </label>
-            <input class="form-control" name="birth_date" type="date" placeholder="birth_date" value="{{$customer->birth_date}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">National Code: </label>
-            <input class="form-control" name="national_code" placeholder="optional" value="{{$customer->national_code}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Province ID: </label>
-            <input class="form-control" name="province_id" placeholder="province" value="{{$customer->province_id}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">City ID: </label>
-            <input class="form-control" name="city_id" placeholder="city" value="{{$customer->city_id}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Job: </label>
-            <input class="form-control" name="job" placeholder="job" value="{{$customer->job}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Username: </label>
-            <input class="form-control" name="username" placeholder="username" value="{{$customer->username}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">Password: </label>
-            <input class="form-control" name="password" placeholder="password" value="{{$customer->password}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">LAT: </label>
-            <input class="form-control" name="lat" placeholder="lat" value="{{$customer->lat}}"><br>
-        </div>
-
-
-        <div class="col-md-2">
-            <label class="form-label">LAN: </label>
-            <input class="form-control" name="lan" placeholder="lan" value="{{$customer->lan}}"><br>
-        </div>
-
-
-        <button type="submit" class="btn btn-secondary">submit</button>
-    </form>
---}}

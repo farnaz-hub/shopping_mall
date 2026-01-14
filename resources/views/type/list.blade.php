@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div>
         <a href="{{route('type.add')}}" class="btn btn-info">ADD</a>
@@ -18,7 +17,8 @@
                     <td class="text-center">
                         <div class="d-grid gap-2">
                             <a href="{{route('type.show', ['type' => $type])}}" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="{{route('type.delete', ['type' => $type])}}" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{route('type.delete', ['type' => $type])}}"
+                               class="btn btn-danger btn-sm">Delete</a>
                         </div>
                     </td>
                 </tr>

@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="x_content">
         <br/>
@@ -8,28 +7,29 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Title</label>
-                <input  name="title" type="text" id="title" placeholder="title" class="form-control"
-                        value="{{$product->title}}">
+                <input name="title" type="text" id="title" placeholder="title" class="form-control"
+                       value="{{$product->title}}">
             </div>
 
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label for="description">Description</label>
-                <textarea name="description" type="text" id="description" placeholder="description" class="form-control">{{$product->description}}</textarea>
+                <textarea name="description" type="text" id="description" placeholder="description"
+                          class="form-control">{{$product->description}}</textarea>
             </div>
 
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Slug</label>
-                <input  name="slug" type="text" id="slug" placeholder="slug" class="form-control"
-                        value="{{$product->slug}}">
+                <input name="slug" type="text" id="slug" placeholder="slug" class="form-control"
+                       value="{{$product->slug}}">
             </div>
 
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Image</label>
-                <input  name="image" type="text" id="image" placeholder="image" class="form-control"
-                        value="{{$product->image}}">
+                <input name="image" type="text" id="image" placeholder="image" class="form-control"
+                       value="{{$product->image}}">
             </div>
 
 
@@ -37,7 +37,8 @@
                 <label>Brand</label>
                 <select class="form-control" name="brand_id">
                     @foreach($brands as $brand)
-                        <option value="{{$brand->id}}" @if($brand->id == $product->brand_id) selected @endif> {{$brand->title}} </option>
+                        <option value="{{$brand->id}}"
+                                @if($brand->id == $product->brand_id) selected @endif> {{$brand->title}} </option>
                     @endforeach
                 </select>
             </div>
@@ -45,15 +46,16 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Max Order</label>
-                <input  name="max_order" type="text" id="max_order" placeholder="max_order" class="form-control"
-                        value="{{$product->max_order}}">
+                <input name="max_order" type="text" id="max_order" placeholder="max_order" class="form-control"
+                       value="{{$product->max_order}}">
             </div>
 
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Warning Border</label>
-                <input  name="warning_border" type="text" id="warning_border" placeholder="warning_border" class="form-control"
-                        value="{{$product->warning_border}}">
+                <input name="warning_border" type="text" id="warning_border" placeholder="warning_border"
+                       class="form-control"
+                       value="{{$product->warning_border}}">
             </div>
 
 

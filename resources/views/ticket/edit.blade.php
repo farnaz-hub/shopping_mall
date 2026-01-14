@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="container-fluid">
         <form method="post" action="{{route('ticket.update', ['ticket' => $ticket])}}">
@@ -7,7 +6,8 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Title</label>
-                <input name="title" type="text" id="title" placeholder="title" class="form-control" value="{{$ticket->title}}">
+                <input name="title" type="text" id="title" placeholder="title" class="form-control"
+                       value="{{$ticket->title}}">
             </div>
 
 
@@ -15,7 +15,8 @@
                 <label>Type</label>
                 <select name="type_id" class="form-control">
                     @foreach($types as $type)
-                        <option value="{{$type->id}}" @if($type->id == $ticket->type_id) selected @endif> {{$type->title}} </option>
+                        <option value="{{$type->id}}"
+                                @if($type->id == $ticket->type_id) selected @endif> {{$type->title}} </option>
                     @endforeach
                 </select>
             </div>
@@ -25,7 +26,8 @@
                 <label>Category</label>
                 <select name="category_id" class="form-control">
                     @foreach($categories as $category)
-                        <option value="{{$category->id}}" @if($category->id == $ticket->category_id) selected @endif> {{$category->title}} </option>
+                        <option value="{{$category->id}}"
+                                @if($category->id == $ticket->category_id) selected @endif> {{$category->title}} </option>
                     @endforeach
                 </select>
             </div>
@@ -56,7 +58,8 @@
                         <input name="status" type="radio" value="1" @if($ticket->status == 1) checked @endif>closed
                     </label>
                     <label class="btn btn-default @if($ticket->status == 2) active @endif">
-                        <input name="status" type="radio" value="2" @if($ticket->status == 2) checked @endif>pending response
+                        <input name="status" type="radio" value="2" @if($ticket->status == 2) checked @endif>pending
+                        response
                     </label>
                 </div>
             </div>
@@ -64,13 +67,15 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label for="description">Description</label>
-                <textarea rows="5" name="description" type="text" id="description" placeholder="description" class="form-control"> {{$ticket->description}} </textarea>
+                <textarea rows="5" name="description" type="text" id="description" placeholder="description"
+                          class="form-control"> {{$ticket->description}} </textarea>
             </div>
 
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label style="margin: 30px">Do you want to receive message from support team?</label>
-                <input name="send_message" type="checkbox" value="1" class="form-check-input" @if($ticket->send_message) checked @endif>
+                <input name="send_message" type="checkbox" value="1" class="form-check-input"
+                       @if($ticket->send_message) checked @endif>
             </div>
 
 

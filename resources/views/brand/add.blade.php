@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="container-fluid">
         <form method="post" action="{{route('brand.save')}}">
@@ -8,7 +7,7 @@
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title">Title</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input  name="title" type="text" id="title" class="form-control col-md-7 col-xs-12">
+                    <input name="title" type="text" id="title" class="form-control col-md-7 col-xs-12">
                 </div>
             </div>
 

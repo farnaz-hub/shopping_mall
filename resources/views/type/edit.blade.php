@@ -1,5 +1,4 @@
 @extends('layout')
-
 @section('content')
     <div class="container-fluid">
         <form method="post" action="{{route('type.update', ['type' => $type])}}">
@@ -7,7 +6,8 @@
 
             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
                 <label>Title</label>
-                <input name="title" type="text" id="title" placeholder="title" class="form-control" value="{{$type->title}}">
+                <input name="title" type="text" id="title" placeholder="title" class="form-control"
+                       value="{{$type->title}}">
             </div>
 
 
