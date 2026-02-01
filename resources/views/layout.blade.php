@@ -122,15 +122,8 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:"> نمایه</a></li>
-                                <li>
-                                    <a href="javascript:">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>تنظیمات</span>
-                                    </a>
+                                <li><a href="{{route('logout')}}"><i class="fa fa-sign-out pull-right"></i>Log out</a>
                                 </li>
-                                <li><a href="javascript:">کمک</a></li>
-                                <li><a href=""><i class="fa fa-sign-out pull-right"></i> خروج</a></li>
                             </ul>
                         </li>
                     </ul>

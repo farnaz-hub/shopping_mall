@@ -64,7 +64,7 @@
             url: $(el).attr('href'),
             method: 'GET',
             success: function (result) {
-                $('.modal-body').html(result.body);
+                $('.modal-body').html(result.body)
             }
         })
     }
@@ -80,7 +80,7 @@
                     url: '{{route('address.list', ['customer' => '!id!'])}}'.replace('!id!', $('[name="customer_id"]').val()),   // !id! --> just a placeholder. /address/!id!, then take value with replace method.
                     method: 'GET',
                     success: function (result) {
-                        $('.modal-body').html(result);
+                        $('.modal-body').html(result)
                     }
                 })
             }
@@ -93,7 +93,7 @@
             url: $(el).attr('href'),
             method: 'GET',
             success: function (result) {
-                $('.modal-body').html(result);
+                $('.modal-body').html(result)
             }
         })
     }
@@ -106,10 +106,10 @@
             data: $('#editAddress').serializeArray(),
             success: function (result) {
                 $.ajax({
-                    url: '{{route('address.list', ['customer' => '!id!'])}}'.replace('!id!', $('[name="customer_id"]').val()),
+                    url: '{{route('address.list', ['customer' => $customer])}}',
                     method: 'GET',
                     success: function (result) {
-                        $('.modal-body').html(result);
+                        $('.modal-body').html(result)
                     }
                 })
             }
@@ -126,10 +126,10 @@
             },
             success: function (result) {
                 $.ajax({
-                    url: '{{route('address.list', ['customer' => '!id!'])}}'.replace('!id!', $('[name="customer_id"]').val()),
+                    url: '{{route('address.list', ['customer' => $customer])}}',
                     method: 'GET',
                     success: function (result) {
-                        $('.modal-body').html(result);
+                        $('.modal-body').html(result)
                     }
                 })
             }

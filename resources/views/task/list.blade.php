@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <a href="{{route('task.add')}}" class="btn btn-info fa fa-plus">ADD</a>
-    <table class="table table-striped" style="background-color: ">
+    <table class="table table-striped">
         <thead class="table-dark">
         <tr>
             <th class="text-center">ID</th>

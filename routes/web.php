@@ -6,6 +6,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//home
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'enter'])->name('home');
+
+
+//login
+Route::get('/login', [\App\Http\Controllers\LoginController::class, 'form'])->name('login.form');
+Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
+
+
+//logout
+Route::get('/logout', [\App\Http\Controllers\LogoutController::class, 'logout'])->name('logout');
+
 
 //customer
 Route::get('/customer/add', [\App\Http\Controllers\CustomerController::class, 'add'])->name('customer.add');
@@ -25,15 +37,6 @@ Route::post('/user/update/{user}', [\App\Http\Controllers\UserController::class,
 Route::get('/user/delete/{user}', [\App\Http\Controllers\UserController::class, 'delete'])->name('user.delete');
 
 
-//brand
-Route::get('/brand/add', [\App\Http\Controllers\BrandController::class, 'add'])->name('brand.add');
-Route::post('/brand/save', [\App\Http\Controllers\BrandController::class, 'save'])->name('brand.save');
-Route::get('/brand/list', [\App\Http\Controllers\BrandController::class, 'list'])->name('brand.list');
-Route::get('/brand/{brand}', [\App\Http\Controllers\BrandController::class, 'show'])->name('brand.show');
-Route::post('/brand/update/{brand}', [\App\Http\Controllers\BrandController::class, 'update'])->name('brand.update');
-Route::get('/brand/delete/{brand}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('brand.delete');
-
-
 //product
 Route::get('/product/add', [\App\Http\Controllers\ProductController::class, 'add'])->name('product.add');
 Route::post('/product/save', [\App\Http\Controllers\ProductController::class, 'save'])->name('product.save');
@@ -43,8 +46,13 @@ Route::post('/product/update/{product}', [\App\Http\Controllers\ProductControlle
 Route::get('/product/delete/{product}', [\App\Http\Controllers\ProductController::class, 'delete'])->name('product.delete');
 
 
-//home
-Route::get('/home', [\App\Http\Controllers\HomeController::class, 'enter'])->name('home');
+//brand
+Route::get('/brand/add', [\App\Http\Controllers\BrandController::class, 'add'])->name('brand.add');
+Route::post('/brand/save', [\App\Http\Controllers\BrandController::class, 'save'])->name('brand.save');
+Route::get('/brand/list', [\App\Http\Controllers\BrandController::class, 'list'])->name('brand.list');
+Route::get('/brand/{brand}', [\App\Http\Controllers\BrandController::class, 'show'])->name('brand.show');
+Route::post('/brand/update/{brand}', [\App\Http\Controllers\BrandController::class, 'update'])->name('brand.update');
+Route::get('/brand/delete/{brand}', [\App\Http\Controllers\BrandController::class, 'delete'])->name('brand.delete');
 
 
 //ticket
@@ -54,6 +62,12 @@ Route::get('/ticket/list', [\App\Http\Controllers\TicketController::class, 'list
 Route::get('/ticket/{ticket}', [\App\Http\Controllers\TicketController::class, 'show'])->name('ticket.show');
 Route::post('/ticket/update/{ticket}', [\App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
 Route::get('/ticket/delete/{ticket}', [\App\Http\Controllers\TicketController::class, 'delete'])->name('ticket.delete');
+
+
+//message
+Route::post('/message/save/{ticket}', [\App\Http\Controllers\MessageController::class, 'save'])->name('message.save');
+Route::get('/message/{ticket}', [\App\Http\Controllers\MessageController::class, 'list'])->name('message.list');
+Route::delete('/message/delete/{message}', [\App\Http\Controllers\MessageController::class, 'delete'])->name('message.delete');
 
 
 //type
@@ -83,20 +97,6 @@ Route::post('/address/update/{address}', [\App\Http\Controllers\AddressControlle
 Route::delete('/address/delete/{address}', [\App\Http\Controllers\AddressController::class, 'delete'])->name('address.delete');
 
 
-//login
-Route::get('/login', [\App\Http\Controllers\LoginController::class, 'form'])->name('login.form');
-Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
-
-
-//message
-Route::get('/message/add/{ticket}', [\App\Http\Controllers\MessageController::class, 'add'])->name('message.add');
-Route::post('/message/save', [\App\Http\Controllers\MessageController::class, 'save'])->name('message.save');
-Route::get('/message/list', [\App\Http\Controllers\MessageController::class, 'list'])->name('message.list');
-Route::get('/message/{message}', [\App\Http\Controllers\MessageController::class, 'show'])->name('message.show');
-Route::post('/message/update/{message}', [\App\Http\Controllers\MessageController::class, 'update'])->name('message.update');
-Route::get('/message/delete/{message}', [\App\Http\Controllers\MessageController::class, 'delete'])->name('message.delete');
-
-
 //task
 Route::get('/task/add', [\App\Http\Controllers\TaskController::class, 'add'])->name('task.add');
 Route::post('/task/save', [\App\Http\Controllers\TaskController::class, 'save'])->name('task.save');
@@ -109,3 +109,4 @@ Route::get('/task/delete/{task}', [\App\Http\Controllers\TaskController::class, 
 //idea
 Route::post('/idea/save/{task}', [\App\Http\Controllers\IdeaController::class, 'save'])->name('idea.save');
 Route::get('/idea/{task}', [\App\Http\Controllers\IdeaController::class, 'list'])->name('idea.list');
+Route::delete('/idea/delete/{idea}', [\App\Http\Controllers\IdeaController::class, 'delete'])->name('idea.delete');

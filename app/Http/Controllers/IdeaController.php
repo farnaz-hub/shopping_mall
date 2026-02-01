@@ -30,6 +30,15 @@ class IdeaController extends Controller
         $customers = Customer::all();
         $solvers = User::all();
         $categories = Category::all();
-        return view('idea', compact('customers', 'solvers', 'categories', 'ideas', 'task'));
+        return view('idea.list', compact('customers', 'solvers', 'categories', 'ideas', 'task'));
+    }
+
+
+    public function delete(Idea $idea)
+    {
+        $idea->delete();
+        return [
+            'success' => true,
+        ];
     }
 }
