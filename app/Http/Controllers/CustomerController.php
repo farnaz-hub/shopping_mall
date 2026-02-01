@@ -113,15 +113,18 @@ class CustomerController extends Controller
                 $old_address->update();
             } else {
                 if (!empty($address)) {                                     //address is not empty but address_id is empty and doesn't have value so new address must be created
-                    Address::create([
-                        'customer_id' => $customer->id,
-                        'address' => $address,
-                        'postal_code' => $postal_codes[$index],
-                        'unit' => $units[$index],
-                        'title' => $titles[$index],
+                    $customer->addresses()->createMany([
+                        ['address' => $address, 'postal_code' => $postal_codes[$index], 'unit' => $units[$index], 'title' => $titles[$index]]
                     ]);
-                }
 
+//                    Address::create([
+//                        'customer_id' => $customer->id,
+//                        'address' => $address,
+//                        'postal_code' => $postal_codes[$index],
+//                        'unit' => $units[$index],
+//                        'title' => $titles[$index],
+//                    ]);
+                }
             }
         }
 
