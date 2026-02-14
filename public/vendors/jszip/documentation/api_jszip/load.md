@@ -10,20 +10,20 @@ object at the current folder level. This technique has some limitations, see
 
 __Arguments__
 
-name               | type   | description
--------------------|--------|------------
-data               | String/Array of bytes/ArrayBuffer/Uint8Array/Buffer | the zip file
-options            | object | the options to load the zip file
+ name    | type                                                | description                      
+---------|-----------------------------------------------------|----------------------------------
+ data    | String/Array of bytes/ArrayBuffer/Uint8Array/Buffer | the zip file                     
+ options | object                                              | the options to load the zip file 
 
 Content of `options` :
 
-name                          | type    | default | description
-------------------------------|---------|---------|------------
-options.base64                | boolean | false   | set to `true` if the data is base64 encoded, `false` for binary.
-options.checkCRC32            | boolean | false   | set to `true` if the read data should be checked against its CRC32.
-options.optimizedBinaryString | boolean | false   | set to true if (and only if) the input is a string and has already been prepared with a 0xFF mask.
-options.createFolders      | boolean | false   | set to true to create folders in the file path automatically. Leaving it false will result in only virtual folders (i.e. folders that merely represent part of the file path) being created.
-options.decodeFileName        | function | decode from UTF-8 | the function to decode the file name / comment.
+ name                          | type     | default           | description                                                                                                                                                                                  
+-------------------------------|----------|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ options.base64                | boolean  | false             | set to `true` if the data is base64 encoded, `false` for binary.                                                                                                                             
+ options.checkCRC32            | boolean  | false             | set to `true` if the read data should be checked against its CRC32.                                                                                                                          
+ options.optimizedBinaryString | boolean  | false             | set to true if (and only if) the input is a string and has already been prepared with a 0xFF mask.                                                                                           
+ options.createFolders         | boolean  | false             | set to true to create folders in the file path automatically. Leaving it false will result in only virtual folders (i.e. folders that merely represent part of the file path) being created. 
+ options.decodeFileName        | function | decode from UTF-8 | the function to decode the file name / comment.                                                                                                                                              
 
 You shouldn't update the data given to this method : it is kept as it so any
 update will impact the stored data.
@@ -39,7 +39,6 @@ Zip features not (yet) supported :
 
 * password protected zip
 * multi-volume zip
-
 
 __About `decodeFileName`__ :
 

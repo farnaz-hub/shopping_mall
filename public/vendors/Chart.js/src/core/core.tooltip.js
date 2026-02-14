@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 
@@ -24,15 +24,15 @@ module.exports = function(Chart) {
 		footerAlign: "left",
 		yPadding: 6,
 		xPadding: 6,
-		yAlign : 'center',
-		xAlign : 'center',
+		yAlign: 'center',
+		xAlign: 'center',
 		caretSize: 5,
 		cornerRadius: 6,
 		multiKeyBackground: '#fff',
 		callbacks: {
 			// Args are: (tooltipItems, data)
 			beforeTitle: helpers.noop,
-			title: function(tooltipItems, data) {
+			title: function (tooltipItems, data) {
 				// Pick first xLabel for now
 				var title = '';
 				var labels = data.labels;
@@ -57,11 +57,11 @@ module.exports = function(Chart) {
 
 			// Args are: (tooltipItem, data)
 			beforeLabel: helpers.noop,
-			label: function(tooltipItem, data) {
+			label: function (tooltipItem, data) {
 				var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
 				return datasetLabel + ': ' + tooltipItem.yLabel;
 			},
-			labelColor: function(tooltipItem, chartInstance) {
+			labelColor: function (tooltipItem, chartInstance) {
 				var meta = chartInstance.getDatasetMeta(tooltipItem.datasetIndex);
 				var activeElement = meta.data[tooltipItem.index];
 				var view = activeElement._view;
@@ -107,7 +107,7 @@ module.exports = function(Chart) {
 
 		for (i = 0, len = elements.length; i < len; ++i) {
 			var el = elements[i];
-			if (el && el.hasValue()){
+			if (el && el.hasValue()) {
 				var pos = el.tooltipPosition();
 				xPositions.push(pos.x);
 				yPositions.push(pos.y);
@@ -145,7 +145,7 @@ module.exports = function(Chart) {
 	}
 
 	Chart.Tooltip = Chart.Element.extend({
-		initialize: function() {
+		initialize: function () {
 			var me = this;
 			var globalDefaults = Chart.defaults.global;
 			var tooltipOpts = me._options;
@@ -156,8 +156,8 @@ module.exports = function(Chart) {
 					// Positioning
 					xPadding: tooltipOpts.xPadding,
 					yPadding: tooltipOpts.yPadding,
-					xAlign : tooltipOpts.yAlign,
-					yAlign : tooltipOpts.xAlign,
+					xAlign: tooltipOpts.yAlign,
+					yAlign: tooltipOpts.xAlign,
 
 					// Body
 					bodyFontColor: tooltipOpts.bodyFontColor,
@@ -197,7 +197,7 @@ module.exports = function(Chart) {
 
 		// Get the title
 		// Args are: (tooltipItem, data)
-		getTitle: function() {
+		getTitle: function () {
 			var me = this;
 			var opts = me._options;
 			var callbacks = opts.callbacks;
@@ -215,18 +215,18 @@ module.exports = function(Chart) {
 		},
 
 		// Args are: (tooltipItem, data)
-		getBeforeBody: function() {
+		getBeforeBody: function () {
 			var lines = this._options.callbacks.beforeBody.apply(this, arguments);
 			return helpers.isArray(lines) ? lines : lines !== undefined ? [lines] : [];
 		},
 
 		// Args are: (tooltipItem, data)
-		getBody: function(tooltipItems, data) {
+		getBody: function (tooltipItems, data) {
 			var me = this;
 			var callbacks = me._options.callbacks;
 			var bodyItems = [];
 
-			helpers.each(tooltipItems, function(tooltipItem) {
+			helpers.each(tooltipItems, function (tooltipItem) {
 				var bodyItem = {
 					before: [],
 					lines: [],
@@ -243,14 +243,14 @@ module.exports = function(Chart) {
 		},
 
 		// Args are: (tooltipItem, data)
-		getAfterBody: function() {
+		getAfterBody: function () {
 			var lines = this._options.callbacks.afterBody.apply(this, arguments);
 			return helpers.isArray(lines) ? lines : lines !== undefined ? [lines] : [];
 		},
 
 		// Get the footer and beforeFooter and afterFooter lines
 		// Args are: (tooltipItem, data)
-		getFooter: function() {
+		getFooter: function () {
 			var me = this;
 			var callbacks = me._options.callbacks;
 
@@ -266,7 +266,7 @@ module.exports = function(Chart) {
 			return lines;
 		},
 
-		update: function(changed) {
+		update: function (changed) {
 			var me = this;
 			var opts = me._options;
 			var model = me._model;
@@ -295,7 +295,7 @@ module.exports = function(Chart) {
 
 				// If there is more than one item, show color items
 				if (active.length > 1) {
-					helpers.each(tooltipItems, function(tooltipItem) {
+					helpers.each(tooltipItems, function (tooltipItem) {
 						labelColors.push(opts.callbacks.labelColor.call(me, tooltipItem, chartInstance));
 					});
 				}
@@ -338,7 +338,7 @@ module.exports = function(Chart) {
 
 			// Count of all lines in the body
 			var body = vm.body;
-			var combinedBodyLength = body.reduce(function(count, bodyItem) {
+			var combinedBodyLength = body.reduce(function (count, bodyItem) {
 				return count + bodyItem.before.length + bodyItem.lines.length + bodyItem.after.length;
 			}, 0);
 			combinedBodyLength += vm.beforeBody.length + vm.afterBody.length;
@@ -360,7 +360,7 @@ module.exports = function(Chart) {
 
 			// Title width
 			var widthPadding = 0;
-			var maxLineWidth = function(line) {
+			var maxLineWidth = function (line) {
 				size.width = Math.max(size.width, ctx.measureText(line).width + widthPadding);
 			};
 
@@ -373,7 +373,7 @@ module.exports = function(Chart) {
 
 			// Body lines may include some extra width due to the color box
 			widthPadding = body.length > 1 ? (bodyFontSize + 2) : 0;
-			helpers.each(body, function(bodyItem) {
+			helpers.each(body, function (bodyItem) {
 				helpers.each(bodyItem.before, maxLineWidth);
 				helpers.each(bodyItem.lines, maxLineWidth);
 				helpers.each(bodyItem.after, maxLineWidth);
@@ -410,28 +410,28 @@ module.exports = function(Chart) {
 			var midY = (chartArea.top + chartArea.bottom) / 2;
 
 			if (model.yAlign === 'center') {
-				lf = function(x) {
+				lf = function (x) {
 					return x <= midX;
 				};
-				rf = function(x) {
+				rf = function (x) {
 					return x > midX;
 				};
 			} else {
-				lf = function(x) {
+				lf = function (x) {
 					return x <= (size.width / 2);
 				};
-				rf = function(x) {
+				rf = function (x) {
 					return x >= (chart.width - (size.width / 2));
 				};
 			}
 
-			olf = function(x) {
+			olf = function (x) {
 				return x + size.width > chart.width;
 			};
-			orf = function(x) {
+			orf = function (x) {
 				return x - size.width < 0;
 			};
-			yf = function(y) {
+			yf = function (y) {
 				return y <= midY ? 'top' : 'bottom';
 			};
 
@@ -602,7 +602,7 @@ module.exports = function(Chart) {
 
 			// Before Body
 			var xLinePadding = 0;
-			var fillLineOfText = function(line) {
+			var fillLineOfText = function (line) {
 				ctx.fillText(line, pt.x + xLinePadding, pt.y);
 				pt.y += bodyFontSize + bodySpacing;
 			};
@@ -614,10 +614,10 @@ module.exports = function(Chart) {
 			xLinePadding = drawColorBoxes ? (bodyFontSize + 2) : 0;
 
 			// Draw body lines now
-			helpers.each(body, function(bodyItem, i) {
+			helpers.each(body, function (bodyItem, i) {
 				helpers.each(bodyItem.before, fillLineOfText);
 
-				helpers.each(bodyItem.lines, function(line) {
+				helpers.each(bodyItem.lines, function (line) {
 					// Draw Legend-like boxes if needed
 					if (drawColorBoxes) {
 						// Fill a white rect so that colours merge nicely if the opacity is < 1
@@ -661,7 +661,7 @@ module.exports = function(Chart) {
 				ctx.fillStyle = footerFontColor.alpha(opacity * footerFontColor.alpha()).rgbString();
 				ctx.font = helpers.fontString(vm.footerFontSize, vm._footerFontStyle, vm._footerFontFamily);
 
-				helpers.each(footer, function(line) {
+				helpers.each(footer, function (line) {
 					ctx.fillText(line, pt.x, pt.y);
 					pt.y += vm.footerFontSize + vm.footerSpacing;
 				});

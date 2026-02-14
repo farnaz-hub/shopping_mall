@@ -7,10 +7,14 @@ Improvements
 ============
 
 ### Compatability with Flot Stack Plugin
-The main improvement I've made is compatability with the [Flot Stack plugin](https://github.com/flot/flot/blob/master/jquery.flot.stack.js).
+
+The main improvement I've made is compatability with
+the [Flot Stack plugin](https://github.com/flot/flot/blob/master/jquery.flot.stack.js).
 
 To use the 2 together:
+
 * Ensure that your data is well formed. Each series should contain a bars object with an order integer, like so:
+
 ```javascript
   var series = [];
   

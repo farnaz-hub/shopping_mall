@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 
@@ -19,7 +19,7 @@ module.exports = function(Chart) {
 	var noop = helpers.noop;
 	Chart.Title = Chart.Element.extend({
 
-		initialize: function(config) {
+		initialize: function (config) {
 			var me = this;
 			helpers.extend(me, config);
 			me.options = helpers.configMerge(Chart.defaults.global.title, config.options);
@@ -36,7 +36,7 @@ module.exports = function(Chart) {
 				this.options = helpers.configMerge(Chart.defaults.global.title, chartOpts.title);
 			}
 		},
-		update: function(maxWidth, maxHeight, margins) {
+		update: function (maxWidth, maxHeight, margins) {
 			var me = this;
 
 			// Update Lifecycle - Probably don't want to ever extend or overwrite this function ;)
@@ -71,7 +71,7 @@ module.exports = function(Chart) {
 		//
 
 		beforeSetDimensions: noop,
-		setDimensions: function() {
+		setDimensions: function () {
 			var me = this;
 			// Set the unconstrained dimension before label rotation
 			if (me.isHorizontal()) {
@@ -110,7 +110,7 @@ module.exports = function(Chart) {
 		//
 
 		beforeFit: noop,
-		fit: function() {
+		fit: function () {
 
 			var me = this,
 				ctx = me.ctx,
@@ -136,13 +136,13 @@ module.exports = function(Chart) {
 		afterFit: noop,
 
 		// Shared Methods
-		isHorizontal: function() {
+		isHorizontal: function () {
 			var pos = this.options.position;
 			return pos === "top" || pos === "bottom";
 		},
 
 		// Actualy draw the title block on the canvas
-		draw: function() {
+		draw: function () {
 			var me = this,
 				ctx = me.ctx,
 				valueOrDefault = helpers.getValueOrDefault,
@@ -188,7 +188,7 @@ module.exports = function(Chart) {
 
 	// Register the title plugin
 	Chart.plugins.register({
-		beforeInit: function(chartInstance) {
+		beforeInit: function (chartInstance) {
 			var opts = chartInstance.options;
 			var titleOpts = opts.title;
 

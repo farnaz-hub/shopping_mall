@@ -4,11 +4,11 @@
 
 //TODO
 caption {
-  text-align: right;
+    text-align: right;
 }
 
 th {
-  text-align: right;
+    text-align: right;
 }
 
 // Responsive tables
@@ -18,30 +18,31 @@ th {
 // will display normally.
 
 .table-responsive {
-  @media screen and (max-width: @screen-xs-max) {
+    @media screen and (max-width: @screen-xs-max) {
 
-    // Special overrides for the bordered tables
-    > .table-bordered {
-      border: 0;
+        // Special overrides for the bordered tables
+        > .table-bordered {
+            border: 0;
 
-      // Nuke the appropriate borders so that the parent can handle them
-      > thead,
-      > tbody,
-      > tfoot {
-        > tr {
-          > th:first-child,
-          > td:first-child {
-            border-right: 0;
-            border-left: initial;
-          }
-          > th:last-child,
-          > td:last-child {
-            border-left: 0;
-            border-right: initial;
-          }
+            // Nuke the appropriate borders so that the parent can handle them
+            > thead,
+            > tbody,
+            > tfoot {
+                > tr {
+                    > th:first-child,
+                    > td:first-child {
+                        border-right: 0;
+                        border-left: initial;
+                    }
+
+                    > th:last-child,
+                    > td:last-child {
+                        border-left: 0;
+                        border-right: initial;
+                    }
+                }
+            }
+
         }
-      }
-
     }
-  }
 }

@@ -4,17 +4,17 @@
     <table class="table table-striped">
         <thead class="table-dark">
         <tr>
-            <th class="text-center">Name</th>
-            <th class="text-center">Family</th>
-            <th class="text-center">Mobile</th>
-            <th class="text-center">Gender</th>
-            <th class="text-center">Birth Date</th>
-            <th class="text-center">National Code</th>
-            <th class="text-center">Province</th>
-            <th class="text-center">City</th>
-            <th class="text-center">Job</th>
-            <th class="text-center">Username</th>
-            <th class="text-center">Operations</th>
+            <th class="text-center">@lang('Name')</th>
+            <th class="text-center">@lang('Family')</th>
+            <th class="text-center">@lang('Mobile')</th>
+            <th class="text-center">@lang('Gender')</th>
+            <th class="text-center">@lang('Birth Date')</th>
+            <th class="text-center">@lang('National Code')</th>
+            <th class="text-center">@lang('Province')</th>
+            <th class="text-center">@lang('City')</th>
+            <th class="text-center">@lang('Job')</th>
+            <th class="text-center">@lang('Username')</th>
+            <th class="text-center">@lang('Operations')</th>
         </tr>
         </thead>
         <tbody class="text-center">
@@ -38,19 +38,20 @@
                 <td>{{$customer->username}}</td>
                 <td>
                     <div class="d-grid gap-2">
-                        <a href="{{route('customer.show', ['customer' => $customer])}}"
-                           class="btn btn-warning btn-sm fa fa-edit">Edit</a>
-                        <a href="{{route('customer.delete', ['customer' => $customer])}}"
-                           class="btn btn-danger btn-sm fa fa-minus-circle">Delete</a>
-                        <a href="{{route('address.list', ['customer' => $customer])}}"
+                        <a href="{{route('customer.show', ['customer' => $customer->id])}}"
+                           class="btn btn-warning btn-sm fa fa-edit">@lang('Edit')</a>
+                        <a href="{{route('customer.delete', ['customer' => $customer->id])}}"
+                           class="btn btn-danger btn-sm fa fa-minus-circle">@lang('Delete')</a>
+                        <a href="{{route('address.list', ['customer' => $customer->id])}}"
                            class="btn btn-success btn-sm fa fa-address-book-o"
-                           onclick="openAddress(this); return false;">Addresses</a>
+                           onclick="openAddress(this); return false;">@lang('Addresses')</a>
                     </div>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+    {{$customers->onEachSide(5)->links()}}
     <div id="listAddress" class="modal fade" role="dialog">               {{-- Address Modal --}}
         <div class="modal-dialog">
             <!-- Modal content -->

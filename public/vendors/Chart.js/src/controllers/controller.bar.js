@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 
@@ -32,7 +32,7 @@ module.exports = function(Chart) {
 
 		dataElementType: Chart.elements.Rectangle,
 
-		initialize: function(chart, datasetIndex) {
+		initialize: function (chart, datasetIndex) {
 			Chart.DatasetController.prototype.initialize.call(this, chart, datasetIndex);
 
 			// Use this to indicate that this is a bar dataset.
@@ -43,7 +43,7 @@ module.exports = function(Chart) {
 		getBarCount: function getBarCount() {
 			var me = this;
 			var barCount = 0;
-			helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
+			helpers.each(me.chart.data.datasets, function (dataset, datasetIndex) {
 				var meta = me.chart.getDatasetMeta(datasetIndex);
 				if (meta.bar && me.chart.isDatasetVisible(datasetIndex)) {
 					++barCount;
@@ -54,7 +54,7 @@ module.exports = function(Chart) {
 
 		update: function update(reset) {
 			var me = this;
-			helpers.each(me.getMeta().data, function(rectangle, index) {
+			helpers.each(me.getMeta().data, function (rectangle, index) {
 				me.updateElement(rectangle, index, reset);
 			}, me);
 		},
@@ -97,7 +97,7 @@ module.exports = function(Chart) {
 			rectangle.pivot();
 		},
 
-		calculateBarBase: function(datasetIndex, index) {
+		calculateBarBase: function (datasetIndex, index) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
@@ -132,7 +132,7 @@ module.exports = function(Chart) {
 			return yScale.getBasePixel();
 		},
 
-		getRuler: function(index) {
+		getRuler: function (index) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
@@ -151,8 +151,8 @@ module.exports = function(Chart) {
 			var fullBarWidth = categoryWidth / datasetCount;
 
 			if (xScale.ticks.length !== me.chart.data.labels.length) {
-			    var perc = xScale.ticks.length / me.chart.data.labels.length;
-			    fullBarWidth = fullBarWidth * perc;
+				var perc = xScale.ticks.length / me.chart.data.labels.length;
+				fullBarWidth = fullBarWidth * perc;
 			}
 
 			var barWidth = fullBarWidth * xScale.options.barPercentage;
@@ -169,14 +169,14 @@ module.exports = function(Chart) {
 			};
 		},
 
-		calculateBarWidth: function(index) {
+		calculateBarWidth: function (index) {
 			var xScale = this.getScaleForId(this.getMeta().xAxisID);
 			var ruler = this.getRuler(index);
 			return xScale.options.stacked ? ruler.categoryWidth : ruler.barWidth;
 		},
 
 		// Get bar index from the given dataset index accounting for the fact that not all bars are visible
-		getBarIndex: function(datasetIndex) {
+		getBarIndex: function (datasetIndex) {
 			var barIndex = 0;
 			var meta, j;
 
@@ -190,7 +190,7 @@ module.exports = function(Chart) {
 			return barIndex;
 		},
 
-		calculateBarX: function(index, datasetIndex) {
+		calculateBarX: function (index, datasetIndex) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
@@ -212,7 +212,7 @@ module.exports = function(Chart) {
 				(ruler.barSpacing * barIndex);
 		},
 
-		calculateBarY: function(index, datasetIndex) {
+		calculateBarY: function (index, datasetIndex) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
@@ -245,10 +245,10 @@ module.exports = function(Chart) {
 			return yScale.getPixelForValue(value);
 		},
 
-		draw: function(ease) {
+		draw: function (ease) {
 			var me = this;
 			var easingDecimal = ease || 1;
-			helpers.each(me.getMeta().data, function(rectangle, index) {
+			helpers.each(me.getMeta().data, function (rectangle, index) {
 				var d = me.getDataset().data[index];
 				if (d !== null && d !== undefined && !isNaN(d)) {
 					rectangle.transition(easingDecimal).draw();
@@ -256,7 +256,7 @@ module.exports = function(Chart) {
 			}, me);
 		},
 
-		setHoverStyle: function(rectangle) {
+		setHoverStyle: function (rectangle) {
 			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
 			var index = rectangle._index;
 
@@ -267,7 +267,7 @@ module.exports = function(Chart) {
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : helpers.getValueAtIndexOrDefault(dataset.hoverBorderWidth, index, model.borderWidth);
 		},
 
-		removeHoverStyle: function(rectangle) {
+		removeHoverStyle: function (rectangle) {
 			var dataset = this.chart.data.datasets[rectangle._datasetIndex];
 			var index = rectangle._index;
 			var custom = rectangle.custom || {};
@@ -315,7 +315,7 @@ module.exports = function(Chart) {
 		},
 		tooltips: {
 			callbacks: {
-				title: function(tooltipItems, data) {
+				title: function (tooltipItems, data) {
 					// Pick first xLabel for now
 					var title = '';
 
@@ -329,9 +329,9 @@ module.exports = function(Chart) {
 
 					return title;
 				},
-				label: function(tooltipItem, data) {
+				label: function (tooltipItem, data) {
 					var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
-				return datasetLabel + ': ' + tooltipItem.xLabel;
+					return datasetLabel + ': ' + tooltipItem.xLabel;
 				}
 			}
 		}

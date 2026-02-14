@@ -8,6 +8,7 @@ use App\Models\city;
 use App\Models\Customer;
 use App\Models\Province;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CustomerController extends Controller
 {
@@ -60,7 +61,7 @@ class CustomerController extends Controller
 
     public function list()
     {
-        $customers = Customer::all();
+        $customers = Customer::paginate(10);
         return view('customer.list', compact('customers'));
     }
 

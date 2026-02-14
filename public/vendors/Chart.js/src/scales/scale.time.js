@@ -2,9 +2,9 @@
 "use strict";
 
 var moment = require('moment');
-moment = typeof(moment) === 'function' ? moment : window.moment;
+moment = typeof (moment) === 'function' ? moment : window.moment;
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 	var time = {
@@ -68,17 +68,17 @@ module.exports = function(Chart) {
 	};
 
 	var TimeScale = Chart.Scale.extend({
-		initialize: function() {
+		initialize: function () {
 			if (!moment) {
 				throw new Error('Chart.js - Moment.js could not be found! You must include it before Chart.js to use the time scale. Download at https://momentjs.com');
 			}
 
 			Chart.Scale.prototype.initialize.call(this);
 		},
-		getLabelMoment: function(datasetIndex, index) {
+		getLabelMoment: function (datasetIndex, index) {
 			return this.labelMoments[datasetIndex][index];
 		},
-		getMomentStartOf: function(tick) {
+		getMomentStartOf: function (tick) {
 			var me = this;
 			if (me.options.time.unit === 'week' && me.options.time.isoWeekday !== false) {
 				return tick.clone().startOf('isoWeek').isoWeekday(me.options.time.isoWeekday);
@@ -86,7 +86,7 @@ module.exports = function(Chart) {
 				return tick.clone().startOf(me.tickUnit);
 			}
 		},
-		determineDataLimits: function() {
+		determineDataLimits: function () {
 			var me = this;
 			me.labelMoments = [];
 
@@ -94,7 +94,7 @@ module.exports = function(Chart) {
 			// these
 			var scaleLabelMoments = [];
 			if (me.chart.data.labels && me.chart.data.labels.length > 0) {
-				helpers.each(me.chart.data.labels, function(label, index) {
+				helpers.each(me.chart.data.labels, function (label, index) {
 					var labelMoment = me.parseTime(label);
 
 					if (labelMoment.isValid()) {
@@ -112,12 +112,12 @@ module.exports = function(Chart) {
 				me.lastTick = null;
 			}
 
-			helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
+			helpers.each(me.chart.data.datasets, function (dataset, datasetIndex) {
 				var momentsForDataset = [];
 				var datasetVisible = me.chart.isDatasetVisible(datasetIndex);
 
 				if (typeof dataset.data[0] === 'object' && dataset.data[0] !== null) {
-					helpers.each(dataset.data, function(value, index) {
+					helpers.each(dataset.data, function (value, index) {
 						var labelMoment = me.parseTime(me.getRightValue(value));
 
 						if (labelMoment.isValid()) {
@@ -154,7 +154,7 @@ module.exports = function(Chart) {
 			me.firstTick = (me.firstTick || moment()).clone();
 			me.lastTick = (me.lastTick || moment()).clone();
 		},
-		buildTicks: function(index) {
+		buildTicks: function (index) {
 			var me = this;
 
 			me.ctx.save();
@@ -248,7 +248,7 @@ module.exports = function(Chart) {
 
 			me.smallestLabelSeparation = me.width;
 
-			helpers.each(me.chart.data.datasets, function(dataset, datasetIndex) {
+			helpers.each(me.chart.data.datasets, function (dataset, datasetIndex) {
 				for (var i = 1; i < me.labelMoments[datasetIndex].length; i++) {
 					me.smallestLabelSeparation = Math.min(me.smallestLabelSeparation, me.labelMoments[datasetIndex][i].diff(me.labelMoments[datasetIndex][i - 1], me.tickUnit, true));
 				}
@@ -293,7 +293,7 @@ module.exports = function(Chart) {
 			me.ctx.restore();
 		},
 		// Get tooltip label
-		getLabelForIndex: function(index, datasetIndex) {
+		getLabelForIndex: function (index, datasetIndex) {
 			var me = this;
 			var label = me.chart.data.labels && index < me.chart.data.labels.length ? me.chart.data.labels[index] : '';
 
@@ -320,12 +320,12 @@ module.exports = function(Chart) {
 				return formattedTick;
 			}
 		},
-		convertTicksToLabels: function() {
+		convertTicksToLabels: function () {
 			var me = this;
 			me.tickMoments = me.ticks;
 			me.ticks = me.ticks.map(me.tickFormatFunction, me);
 		},
-		getPixelForValue: function(value, index, datasetIndex, includeOffset) {
+		getPixelForValue: function (value, index, datasetIndex, includeOffset) {
 			var me = this;
 			var labelMoment = value && value.isValid && value.isValid() ? value : me.getLabelMoment(datasetIndex, index);
 
@@ -349,17 +349,17 @@ module.exports = function(Chart) {
 				}
 			}
 		},
-		getPixelForTick: function(index, includeOffset) {
+		getPixelForTick: function (index, includeOffset) {
 			return this.getPixelForValue(this.tickMoments[index], null, null, includeOffset);
 		},
-		getValueForPixel: function(pixel) {
+		getValueForPixel: function (pixel) {
 			var me = this;
 			var innerDimension = me.isHorizontal() ? me.width - (me.paddingLeft + me.paddingRight) : me.height - (me.paddingTop + me.paddingBottom);
 			var offset = (pixel - (me.isHorizontal() ? me.left + me.paddingLeft : me.top + me.paddingTop)) / innerDimension;
 			offset *= me.scaleSizeInUnits;
 			return me.firstTick.clone().add(moment.duration(offset, me.tickUnit).asSeconds(), 'seconds');
 		},
-		parseTime: function(label) {
+		parseTime: function (label) {
 			var me = this;
 			if (typeof me.options.time.parser === 'string') {
 				return moment(label, me.options.time.parser);

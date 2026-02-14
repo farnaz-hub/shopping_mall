@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function list()
     {
         $categories = Category::all();
-        return view('category.list',compact('categories'));
+        return view('category.list', compact('categories'));
     }
 
 
@@ -52,7 +52,7 @@ class CategoryController extends Controller
 
     public function delete(Category $category)
     {
-        $category -> delete();
+        $category->delete();
         return redirect(route('category.list'));
     }
 }

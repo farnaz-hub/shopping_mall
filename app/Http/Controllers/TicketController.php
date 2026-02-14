@@ -9,14 +9,16 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    public function add(){
+    public function add()
+    {
         $types = Type::all();
         $categories = Category::all();
         return view('ticket.add', compact('types', 'categories'));
     }
 
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
         Ticket::create([
             'title' => $request->get('title'),
             'type_id' => $request->get('type_id'),
@@ -31,7 +33,8 @@ class TicketController extends Controller
     }
 
 
-    public function list(){
+    public function list()
+    {
         $tickets = Ticket::all();
         return view('ticket.list', compact('tickets'));
     }
@@ -39,9 +42,9 @@ class TicketController extends Controller
 
     public function show(Ticket $ticket)
     {
-       $types = Type::all();
-       $categories = Category::all();
-       return view('ticket.edit', compact('ticket','types', 'categories'));
+        $types = Type::all();
+        $categories = Category::all();
+        return view('ticket.edit', compact('ticket', 'types', 'categories'));
     }
 
 
@@ -52,7 +55,7 @@ class TicketController extends Controller
         $ticket->category_id = $request->get('category_id');
         $ticket->priority = $request->get('priority');
         $ticket->status = $request->get('status');
-        $ticket->send_message = $request->get('send_message',0);
+        $ticket->send_message = $request->get('send_message', 0);
         $ticket->description = $request->get('description');
         $ticket->update();
 

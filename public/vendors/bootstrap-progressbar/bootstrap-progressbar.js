@@ -7,14 +7,14 @@
  * Licensed under the MIT license:
  * http://www.opensource.org/licenses/MIT
  */
-(function($) {
+(function ($) {
 
     'use strict';
 
     // PROGRESSBAR CLASS DEFINITION
     // ============================
 
-    var Progressbar = function(element, options) {
+    var Progressbar = function (element, options) {
         this.$element = $(element);
         this.options = $.extend({}, Progressbar.defaults, options);
     };
@@ -24,14 +24,18 @@
         refresh_speed: 50,
         display_text: 'none',
         use_percentage: true,
-        percent_format: function(percent) { return percent + '%'; },
-        amount_format: function(amount_part, amount_max, amount_min) { return amount_part + ' / ' + amount_max; },
+        percent_format: function (percent) {
+            return percent + '%';
+        },
+        amount_format: function (amount_part, amount_max, amount_min) {
+            return amount_part + ' / ' + amount_max;
+        },
         update: $.noop,
         done: $.noop,
         fail: $.noop
     };
 
-    Progressbar.prototype.transition = function() {
+    Progressbar.prototype.transition = function () {
         var $this = this.$element;
         var $parent = $this.parent();
         var $back_text = this.$back_text;
@@ -62,24 +66,23 @@
                 $back_text.css({height: parent_size, 'line-height': parent_size});
                 $front_text.css({height: parent_size, 'line-height': parent_size});
 
-                $(window).resize(function() {
+                $(window).resize(function () {
                     parent_size = $parent.css('height');
                     $back_text.css({height: parent_size, 'line-height': parent_size});
                     $front_text.css({height: parent_size, 'line-height': parent_size});
                 }); // normal resizing would brick the structure because width is in px
-            }
-            else {
+            } else {
                 parent_size = $parent.css('width');
                 $front_text.css({width: parent_size});
 
-                $(window).resize(function() {
+                $(window).resize(function () {
                     parent_size = $parent.css('width');
                     $front_text.css({width: parent_size});
                 }); // normal resizing would brick the structure because width is in px
             }
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
             var current_percentage;
             var current_value;
             var this_size;
@@ -88,17 +91,15 @@
 
             if (is_vertical) {
                 $this.css('height', percentage + '%');
-            }
-            else {
+            } else {
                 $this.css('width', percentage + '%');
             }
 
-            var progress = setInterval(function() {
+            var progress = setInterval(function () {
                 if (is_vertical) {
                     this_size = $this.height();
                     parent_size = $parent.height();
-                }
-                else {
+                } else {
                     this_size = $this.width();
                     parent_size = $parent.width();
                 }
@@ -118,8 +119,7 @@
 
                     if (options.display_text === 'fill') {
                         $this.text(text);
-                    }
-                    else if (options.display_text === 'center') {
+                    } else if (options.display_text === 'center') {
                         $back_text.text(text);
                         $front_text.text(text);
                     }
@@ -137,7 +137,7 @@
 
     var old = $.fn.progressbar;
 
-    $.fn.progressbar = function(option) {
+    $.fn.progressbar = function (option) {
         return this.each(function () {
             var $this = $(this);
             var data = $this.data('bs.progressbar');

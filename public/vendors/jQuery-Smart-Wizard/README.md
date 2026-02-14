@@ -50,13 +50,13 @@ Parameters and Events are describing on the table below.
 
 ### Step 1: Include Files
 
-Include the following JavaScript and css files on your page. 
+Include the following JavaScript and css files on your page.
 
-1. jQuery Library file (Don't include if you already have it on your page) 
-2. CSS(Style Sheet) file for Smart Wizard 
+1. jQuery Library file (Don't include if you already have it on your page)
+2. CSS(Style Sheet) file for Smart Wizard
 3. JavaScript plug-in file for Smart Wizard
 
-To include the files copy and paste the below lines inside the head tag (`<head> </head>`) of your page. 
+To include the files copy and paste the below lines inside the head tag (`<head> </head>`) of your page.
 Make sure the paths to the files are correct with your working environment.
 
 ```html
@@ -80,7 +80,8 @@ Inititialize the Smart Wizard, copy and paste the below lines inside the head ta
 
 ### Step 3: The HTML
 
-Finally the html, below shows the HTML markup for the Smart Wizard, You can customize it by including your on contents for each steps. 
+Finally the html, below shows the HTML markup for the Smart Wizard, You can customize it by including your on contents
+for each steps.
 Copy and paste the below html inside the body tag (`<body></body>`) of your page.
 
 ```html
@@ -138,7 +139,7 @@ Copy and paste the below html inside the body tag (`<body></body>`) of your page
 
 ### Load ajax content
 
-To load the content via ajax call you need to specify the property "*contentURL*". 
+To load the content via ajax call you need to specify the property "*contentURL*".
 
 example:
 
@@ -151,7 +152,9 @@ example:
 </script>
 ```
 
-When a step got focus the SmartWizard will post the step number to this contentURL and so you can write server side logic to format the content with the step number to be shown next. The response to this call should be the content of that step in HTML format. 
+When a step got focus the SmartWizard will post the step number to this contentURL and so you can write server side
+logic to format the content with the step number to be shown next. The response to this call should be the content of
+that step in HTML format.
 
 To get the step number in php:
 
@@ -159,7 +162,9 @@ To get the step number in php:
 $step_number = $_REQUEST["step_number"];
 ```
 
-By default the SmartWizard will fetch the step content only on the first focus of the step, and cache the content and use it on the further focus of that step. But you can turn off the content cache by specifying the property "*contentCache*" to false. 
+By default the SmartWizard will fetch the step content only on the first focus of the step, and cache the content and
+use it on the further focus of that step. But you can turn off the content cache by specifying the property "
+*contentCache*" to false.
 
 example:
 
@@ -172,14 +177,19 @@ example:
 </script>
 ```
 
-Please see the ajax contents demo and following files on the source code to know how ajax content loading is implemented.
+Please see the ajax contents demo and following files on the source code to know how ajax content loading is
+implemented.
 
 1. *smartwizard2-ajax.htm*
 2. *services/service.php*
 
 ### Input validation
 
-Smart Wizard 3 does not have in-built form validation, but you can call you own validation function for each steps or for all steps with the events. Smart Wizard 3 has three events (*onLeaveStep*, *onShowStep*, *onFinish*). So you can write your step validation login in "*onLeaveStep*" event and on validation fail you can stay on that step by cancelling that event. Validation logic for all steps can be write on "*onFinish*" event and so you can avoid submitting the form with errors. 
+Smart Wizard 3 does not have in-built form validation, but you can call you own validation function for each steps or
+for all steps with the events. Smart Wizard 3 has three events (*onLeaveStep*, *onShowStep*, *onFinish*). So you can
+write your step validation login in "*onLeaveStep*" event and on validation fail you can stay on that step by cancelling
+that event. Validation logic for all steps can be write on "*onFinish*" event and so you can avoid submitting the form
+with errors.
 
 example:
 
@@ -222,7 +232,8 @@ $(document).ready(function(){
 </script>
 ```
 
-Please see the step validation demo and *smartwizard2-validation.php* in the source code to know how step input validation is implemented.
+Please see the step validation demo and *smartwizard2-validation.php* in the source code to know how step input
+validation is implemented.
 
 ### Highlight error steps
 
@@ -232,10 +243,10 @@ Highlighting error steps in Smart Wizard is easy
 $('#wizard').smartWizard('setError',{stepnum:3,iserror:true});
 ```
 
-It takes two arguments 
+It takes two arguments
 
-1. stepnum :- Step number to which is highlighted as error 
-2. iserror :- true = set the step as error step and false = remove the error highlighting 
+1. stepnum :- Step number to which is highlighted as error
+2. iserror :- true = set the step as error step and false = remove the error highlighting
 
 example:
 
@@ -412,7 +423,7 @@ example:
         <td>false</td>
     </tr>
 </table>
- 
+
 ## Event Description:
 
 <table>

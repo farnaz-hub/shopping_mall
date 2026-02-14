@@ -21,7 +21,9 @@ NProgress is available via [bower] and [npm] and [spm].
     $ npm install --save nprogress
 
 [bower]: http://bower.io/search/?q=nprogress
+
 [npm]: https://www.npmjs.org/package/nprogress
+
 [spm]: http://spmjs.io/package/nprogress
 
 Basic usage
@@ -34,9 +36,9 @@ NProgress.start();
 NProgress.done();
 ~~~
 
-Using [Turbolinks] or similar? Ensure you're using Turbolinks 1.3.0+, and use 
-this: (explained 
-    [here](https://github.com/rstacruz/nprogress/issues/8#issuecomment-23010560))
+Using [Turbolinks] or similar? Ensure you're using Turbolinks 1.3.0+, and use
+this: (explained
+[here](https://github.com/rstacruz/nprogress/issues/8#issuecomment-23010560))
 
 ~~~ js
 $(document).on('page:fetch',   function() { NProgress.start(); });
@@ -47,11 +49,11 @@ $(document).on('page:restore', function() { NProgress.remove(); });
 Ideas
 -----
 
- * Add progress to your Ajax calls! Bind it to the jQuery `ajaxStart` and
- `ajaxStop` events.
+* Add progress to your Ajax calls! Bind it to the jQuery `ajaxStart` and
+  `ajaxStop` events.
 
- * Make a fancy loading bar even without Turbolinks/Pjax! Bind it to
- `$(document).ready` and `$(window).load`.
+* Make a fancy loading bar even without Turbolinks/Pjax! Bind it to
+  `$(document).ready` and `$(window).load`.
 
 Advanced usage
 --------------
@@ -81,7 +83,7 @@ NProgress.inc(0.2);    // This will get the current status value and adds 0.2 un
 
 __Force-done:__ By passing `true` to `done()`, it will show the progress bar
 even if it's not being shown. (The default behavior is that *.done()* will not
-    do anything if *.start()* isn't called)
+do anything if *.start()* isn't called)
 
 ~~~ js
 NProgress.done(true);
@@ -93,6 +95,7 @@ Configuration
 -------------
 
 #### `minimum`
+
 Changes the minimum percentage used upon starting. (default: `0.08`)
 
 ~~~ js
@@ -100,6 +103,7 @@ NProgress.configure({ minimum: 0.1 });
 ~~~
 
 #### `template`
+
 You can change the markup using `template`. To keep the progress
 bar working, keep an element with `role='bar'` in there. See the [default template]
 for reference.
@@ -111,6 +115,7 @@ NProgress.configure({
 ~~~
 
 #### `easing` and `speed`
+
 Adjust animation settings using *easing* (a CSS easing string)
 and *speed* (in ms). (default: `ease` and `200`)
 
@@ -119,6 +124,7 @@ NProgress.configure({ easing: 'ease', speed: 500 });
 ~~~
 
 #### `trickle`
+
 Turn off the automatic incrementing behavior by setting this to `false`. (default: `true`)
 
 ~~~ js
@@ -126,7 +132,8 @@ NProgress.configure({ trickle: false });
 ~~~
 
 #### `trickleRate` and `trickleSpeed`
-You can adjust the *trickleRate* (how much to increase per trickle) and 
+
+You can adjust the *trickleRate* (how much to increase per trickle) and
 *trickleSpeed* (how often to trickle, in ms).
 
 ~~~ js
@@ -134,6 +141,7 @@ NProgress.configure({ trickleRate: 0.02, trickleSpeed: 800 });
 ~~~
 
 #### `showSpinner`
+
 Turn off loading spinner by setting it to false. (default: `true`)
 
 ~~~ js
@@ -141,6 +149,7 @@ NProgress.configure({ showSpinner: false });
 ~~~
 
 #### `parent`
+
 specify this to change the parent container. (default: `body`)
 
 ~~~ js
@@ -159,7 +168,8 @@ make your own!
 Resources
 ---------
 
- * [New UI Pattern: Website Loading Bars](http://www.usabilitypost.com/2013/08/19/new-ui-pattern-website-loading-bars/) (usabilitypost.com)
+* [New UI Pattern: Website Loading Bars](http://www.usabilitypost.com/2013/08/19/new-ui-pattern-website-loading-bars/) (
+  usabilitypost.com)
 
 Support
 -------
@@ -173,10 +183,13 @@ __Questions__: ask them at StackOverflow with the tag *nprogress*.<br>
 __Chat__: join us at gitter.im.<br>
 [![Chat](http://img.shields.io/badge/gitter-rstacruz / nprogress-brightgreen.svg)]( https://gitter.im/rstacruz/nprogress )
 
-[default template]: 
+[default template]:
 https://github.com/rstacruz/nprogress/blob/master/nprogress.js#L31
+
 [Turbolinks]: https://github.com/rails/turbolinks
+
 [nprogress.js]: http://ricostacruz.com/nprogress/nprogress.js
+
 [nprogress.css]: http://ricostacruz.com/nprogress/nprogress.css
 
 Thanks
@@ -190,8 +203,9 @@ Authored and maintained by Rico Sta. Cruz with help from [contributors].
 > Twitter [@rstacruz](https://twitter.com/rstacruz)
 
 [MIT License]: http://mit-license.org/
+
 [contributors]: http://github.com/rstacruz/nprogress/contributors
 
-[![Status](https://api.travis-ci.org/rstacruz/nprogress.svg?branch=master)](http://travis-ci.org/rstacruz/nprogress) 
+[![Status](https://api.travis-ci.org/rstacruz/nprogress.svg?branch=master)](http://travis-ci.org/rstacruz/nprogress)
 [![npm version](https://img.shields.io/npm/v/nprogress.png)](https://npmjs.org/package/nprogress "View this project on npm")
 [![spm package](http://spmjs.io/badge/nprogress)](http://spmjs.io/package/nprogress)

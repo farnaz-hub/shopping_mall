@@ -6,43 +6,46 @@
 .radio,
 .checkbox {
 
-  label {
-    padding-right: 20px;
-    padding-left: initial;
-  }
+    label {
+        padding-right: 20px;
+        padding-left: initial;
+    }
 }
+
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-  margin-right: -20px;
-  margin-left: auto;
+    margin-right: -20px;
+    margin-left: auto;
 }
 
 // Radios and checkboxes on same line
 .radio-inline,
 .checkbox-inline {
-  padding-right: 20px;
-  padding-left: 0;
+    padding-right: 20px;
+    padding-left: 0;
 }
+
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
-  margin-right: 10px; // space out consecutive inline controls
-  margin-left: 0;
+    margin-right: 10px; // space out consecutive inline controls
+    margin-left: 0;
 }
 
 .has-feedback {
 
-  // Ensure icons don't overlap text
-  .form-control {
-    padding-left: (@input-height-base * 1.25);
-    padding-right: 12px;
-  }
+    // Ensure icons don't overlap text
+    .form-control {
+        padding-left: (@input-height-base * 1.25);
+        padding-right: 12px;
+    }
 }
+
 // Feedback icon (requires .glyphicon classes)
 .form-control-feedback {
-  left: 0;
-  right: auto;
+    left: 0;
+    right: auto;
 }
 
 // Inline forms
@@ -58,21 +61,21 @@
 
 .form-inline {
 
-  // Kick in the inline
-  @media (min-width: @screen-sm-min) {
+    // Kick in the inline
+    @media (min-width: @screen-sm-min) {
 
-      label {
-        padding-right: 0;
-        padding-left: initial;
-      }
+        label {
+            padding-right: 0;
+            padding-left: initial;
+        }
 
-    .radio input[type="radio"],
-    .checkbox input[type="checkbox"] {
-      margin-right: 0;
-      margin-left: auto;
+        .radio input[type="radio"],
+        .checkbox input[type="checkbox"] {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
     }
-
-  }
 }
 
 
@@ -83,20 +86,20 @@
 
 .form-horizontal {
 
-  // Reset spacing and right align labels, but scope to media queries so that
-  // labels on narrow viewports stack the same as a default form example.
-  @media (min-width: @screen-sm-min) {
-    .control-label {
-      text-align: left;
+    // Reset spacing and right align labels, but scope to media queries so that
+    // labels on narrow viewports stack the same as a default form example.
+    @media (min-width: @screen-sm-min) {
+        .control-label {
+            text-align: left;
+        }
     }
-  }
 
-  // Validation states
-  //
-  // Reposition the icon because it's now within a grid column and columns have
-  // `position: relative;` on them. Also accounts for the grid gutter padding.
-  .has-feedback .form-control-feedback {
-    left: (@grid-gutter-width / 2);
-    right: auto;
-  }
+    // Validation states
+    //
+    // Reposition the icon because it's now within a grid column and columns have
+    // `position: relative;` on them. Also accounts for the grid gutter padding.
+    .has-feedback .form-control-feedback {
+        left: (@grid-gutter-width / 2);
+        right: auto;
+    }
 }

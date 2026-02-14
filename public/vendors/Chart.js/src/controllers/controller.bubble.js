@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 
@@ -24,11 +24,11 @@ module.exports = function(Chart) {
 
 		tooltips: {
 			callbacks: {
-				title: function(tooltipItems, data) {
+				title: function (tooltipItems, data) {
 					// Title doesn't make sense for scatter since we format the data as a point
 					return '';
 				},
-				label: function(tooltipItem, data) {
+				label: function (tooltipItem, data) {
 					var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
 					var dataPoint = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 					return datasetLabel + ': (' + dataPoint.x + ', ' + dataPoint.y + ', ' + dataPoint.r + ')';
@@ -47,12 +47,12 @@ module.exports = function(Chart) {
 			var points = meta.data;
 
 			// Update Points
-			helpers.each(points, function(point, index) {
+			helpers.each(points, function (point, index) {
 				me.updateElement(point, index, reset);
 			});
 		},
 
-		updateElement: function(point, index, reset) {
+		updateElement: function (point, index, reset) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
@@ -92,11 +92,11 @@ module.exports = function(Chart) {
 			point.pivot();
 		},
 
-		getRadius: function(value) {
+		getRadius: function (value) {
 			return value.r || this.chart.options.elements.point.radius;
 		},
 
-		setHoverStyle: function(point) {
+		setHoverStyle: function (point) {
 			var me = this;
 			Chart.DatasetController.prototype.setHoverStyle.call(me, point);
 
@@ -108,7 +108,7 @@ module.exports = function(Chart) {
 			model.radius = custom.hoverRadius ? custom.hoverRadius : (helpers.getValueAtIndexOrDefault(dataset.hoverRadius, index, me.chart.options.elements.point.hoverRadius)) + me.getRadius(dataset.data[index]);
 		},
 
-		removeHoverStyle: function(point) {
+		removeHoverStyle: function (point) {
 			var me = this;
 			Chart.DatasetController.prototype.removeHoverStyle.call(me, point, me.chart.options.elements.point);
 

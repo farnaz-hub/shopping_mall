@@ -8,19 +8,18 @@ __Description__ : Filter nested files/folders with the specified function.
 
 __Arguments__
 
-name      | type     | description
-----------|----------|------------
-predicate | function | the predicate to use.
+ name      | type     | description           
+-----------|----------|-----------------------
+ predicate | function | the predicate to use. 
 
 The predicate has the following signature : `function (relativePath, file) {...}` :
 
-name         | type      | description
--------------|-----------|------------
-relativePath | string    | the filename and its path, reliatively to the current folder.
-file         | ZipObject | the file being tested. See [ZipObject]({{site.baseurl}}/documentation/api_zipobject.html).
+ name         | type      | description                                                                                
+--------------|-----------|--------------------------------------------------------------------------------------------
+ relativePath | string    | the filename and its path, reliatively to the current folder.                              
+ file         | ZipObject | the file being tested. See [ZipObject]({{site.baseurl}}/documentation/api_zipobject.html). 
 
 The predicate must return true if the file should be included, false otherwise.
-
 
 __Returns__ : An array of matching ZipObject.
 

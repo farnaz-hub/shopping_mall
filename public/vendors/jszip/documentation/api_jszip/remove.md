@@ -8,9 +8,9 @@ __Description__ : Delete a file or folder (recursively).
 
 __Arguments__
 
-name | type   | description
------|--------|------------
-name | string | the name of the file/folder to delete.
+ name | type   | description                            
+------|--------|----------------------------------------
+ name | string | the name of the file/folder to delete. 
 
 __Returns__ : The current JSZip object.
 

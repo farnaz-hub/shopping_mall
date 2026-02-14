@@ -9,9 +9,9 @@ in the name : the folder separator is a forward slash ("/").
 
 __Arguments__
 
-name | type   | description
------|--------|-------------
-name | string | the name of the file.
+ name | type   | description           
+------|--------|-----------------------
+ name | string | the name of the file. 
 
 __Returns__ : An instance of [ZipObject]({{site.baseurl}}/documentation/api_zipobject.html) representing
 the file if any, `null` otherwise.

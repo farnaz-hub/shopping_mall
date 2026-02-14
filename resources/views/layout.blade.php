@@ -58,28 +58,30 @@
                     <div class="menu_section">
                         <ul class="nav side-menu">
 
-                            <li><a href="{{route('customer.list')}}"><i class="fa fa-user"></i> Customers <span
+                            <li><a href="{{route('customer.list')}}"><i class="fa fa-user"></i> @lang('Customers') <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('user.list')}}"><i class="fa fa-user-circle-o"></i> Users <span
+                            <li><a href="{{route('user.list')}}"><i class="fa fa-user-circle-o"></i> @lang('Users')
+                                    <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('product.list')}}"><i class="fa fa-product-hunt"></i> Products <span
+                            <li><a href="{{route('product.list')}}"><i class="fa fa-product-hunt"></i> @lang('Products')
+                                    <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('brand.list')}}"><i class="fa fa-braille"></i> Brands <span
+                            <li><a href="{{route('brand.list')}}"><i class="fa fa-braille"></i> @lang('Brands') <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('ticket.list')}}"><i class="fa fa-tags"></i> Tickets <span
+                            <li><a href="{{route('ticket.list')}}"><i class="fa fa-tags"></i> @lang('Tickets') <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('type.list')}}"><i class="fa fa-magic"></i> Types <span
+                            <li><a href="{{route('type.list')}}"><i class="fa fa-magic"></i> @lang('Types') <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('category.list')}}"><i class="fa fa-fax"></i> Categories <span
+                            <li><a href="{{route('category.list')}}"><i class="fa fa-fax"></i> @lang('Categories') <span
                                         class="fa fa-chevron"></span></a></li>
 
-                            <li><a href="{{route('task.list')}}"><i class="fa fa-tasks"></i> Tasks <span
+                            <li><a href="{{route('task.list')}}"><i class="fa fa-tasks"></i> @lang('Tasks') <span
                                         class="fa fa-chevron"></span></a></li>
                         </ul>
                     </div>

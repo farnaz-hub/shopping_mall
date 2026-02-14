@@ -24,9 +24,9 @@ saveAs(blob, "hello.zip");
 
 Under the hood, the polyfill uses the native `saveAs` from the
 [FileSaver](http://www.w3.org/TR/file-writer-api/#the-filesaver-interface) API
-(on Chrome and IE10+) or use a [Blob URL](http://updates.html5rocks.com/2011/08/Downloading-resources-in-HTML5-a-download)
+(on Chrome and IE10+) or use
+a [Blob URL](http://updates.html5rocks.com/2011/08/Downloading-resources-in-HTML5-a-download)
 (on Firefox).
-
 
 #### Data URI
 
@@ -45,9 +45,9 @@ isn't much better with just `Unknown`.
 
 Browser support and resulting filename :
 
-Opera  | Firefox | Safari | Chrome | Internet Explorer
--------|---------|--------|--------|------------------
-"default.zip" | random alphanumeric with ".part" extension | "Unknown" (no extension) | "download.zip" on OSX and Linux, just "download" on Windows | No
+ Opera         | Firefox                                    | Safari                   | Chrome                                                      | Internet Explorer 
+---------------|--------------------------------------------|--------------------------|-------------------------------------------------------------|-------------------
+ "default.zip" | random alphanumeric with ".part" extension | "Unknown" (no extension) | "download.zip" on OSX and Linux, just "download" on Windows | No                
 
 #### Downloadify
 
@@ -77,12 +77,11 @@ TODO : send data as GET / POST ?
 #### Deprecated google gears
 
 [Franz Buchinger](http://www.picurl.org/blog/author/franz/) has written a
-brilliant tutorial on [using JSZip with Google Gears](http://www.picurl.org/blog/2009/11/22/creating-zip-archives-with-gears)
+brilliant tutorial
+on [using JSZip with Google Gears](http://www.picurl.org/blog/2009/11/22/creating-zip-archives-with-gears)
 ([part 2](http://www.picurl.org/blog/2009/11/29/gearszipper-part2-adding-support-for-real-files-and-canvas-elements/)).
 If you want to let your Gears users download several files at once I really
 recommend having a look at some of his [examples](http://picurl.org/gears/zipper/).
-
-
 
 ### In nodejs
 

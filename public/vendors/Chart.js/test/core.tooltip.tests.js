@@ -1,15 +1,15 @@
 // Test the rectangle element
-describe('tooltip tests', function() {
+describe('tooltip tests', function () {
 
-	beforeEach(function() {
+	beforeEach(function () {
 		window.addDefaultMatchers(jasmine);
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		window.releaseAllCharts();
 	});
 
-	it('Should display in label mode', function() {
+	it('Should display in label mode', function () {
 		var chartInstance = window.acquireChart({
 			type: 'line',
 			data: {
@@ -123,7 +123,7 @@ describe('tooltip tests', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(155);
 	});
 
-	it('Should display in single mode', function() {
+	it('Should display in single mode', function () {
 		var chartInstance = window.acquireChart({
 			type: 'line',
 			data: {
@@ -227,7 +227,7 @@ describe('tooltip tests', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(312);
 	});
 
-	it('Should display information from user callbacks', function() {
+	it('Should display information from user callbacks', function () {
 		var chartInstance = window.acquireChart({
 			type: 'line',
 			data: {
@@ -248,37 +248,37 @@ describe('tooltip tests', function() {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						beforeTitle: function() {
+						beforeTitle: function () {
 							return 'beforeTitle';
 						},
-						title: function() {
+						title: function () {
 							return 'title';
 						},
-						afterTitle: function() {
+						afterTitle: function () {
 							return 'afterTitle'
 						},
-						beforeBody: function() {
+						beforeBody: function () {
 							return 'beforeBody';
 						},
-						beforeLabel: function() {
+						beforeLabel: function () {
 							return 'beforeLabel';
 						},
-						label: function() {
+						label: function () {
 							return 'label';
 						},
-						afterLabel: function() {
+						afterLabel: function () {
 							return 'afterLabel';
 						},
-						afterBody: function() {
+						afterBody: function () {
 							return 'afterBody';
 						},
-						beforeFooter: function() {
+						beforeFooter: function () {
 							return 'beforeFooter';
 						},
-						footer: function() {
+						footer: function () {
 							return 'footer';
 						},
-						afterFooter: function() {
+						afterFooter: function () {
 							return 'afterFooter'
 						}
 					}
@@ -376,7 +376,7 @@ describe('tooltip tests', function() {
 		expect(tooltip._view.y).toBeCloseToPixel(190);
 	});
 
-	it('Should display information from user callbacks', function() {
+	it('Should display information from user callbacks', function () {
 		var chartInstance = window.acquireChart({
 			type: 'line',
 			data: {
@@ -396,7 +396,7 @@ describe('tooltip tests', function() {
 			options: {
 				tooltips: {
 					mode: 'label',
-					itemSort: function(a, b) {
+					itemSort: function (a, b) {
 						return a.datasetIndex > b.datasetIndex ? -1 : 1;
 					}
 				}

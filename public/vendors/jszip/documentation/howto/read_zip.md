@@ -7,7 +7,6 @@ section: example
 This page explains how to read an existing zip file or add a existing file into
 the zip file.
 
-
 ### In the browser
 
 #### AJAX request
@@ -35,7 +34,8 @@ are the details. When doing a XHR request (level 1, without setting the
 decode it from its charset. To avoid this on Firefox/Chrome/Opera, you need to
 set mime type : `xhr.overrideMimeType("text/plain; charset=x-user-defined");`.
 On IE <= 9, this is harder. The overrideMimeType trick doesn't work so we need
-to use [vbscript](http://stackoverflow.com/questions/1095102/how-do-i-load-binary-image-data-using-javascript-and-xmlhttprequest)
+to
+use [vbscript](http://stackoverflow.com/questions/1095102/how-do-i-load-binary-image-data-using-javascript-and-xmlhttprequest)
 and non standard attributes.
 On IE > 9, overrideMimeType doesn't work but xhr2 does.
 
@@ -47,7 +47,8 @@ return an ArrayBuffer.
 
 If the browser supports the [FileReader API](http://caniuse.com/filereader),
 you can use it to read a zip file. JSZip can read ArrayBuffer, so you can use
-`FileReader.readAsArrayBuffer(Blob)`, see this [example]({{site.baseurl}}/documentation/examples/read-local-file-api.html).
+`FileReader.readAsArrayBuffer(Blob)`, see
+this [example]({{site.baseurl}}/documentation/examples/read-local-file-api.html).
 
 ### In nodejs
 

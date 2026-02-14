@@ -3,81 +3,16 @@
     <div class="container-fluid">
         <form method="post" action="{{route('customer.save')}}">
             @csrf
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Name</label>
-                <input name="name" type="text" id="name" placeholder="name"
-                       class="form-control @error('name') is-invalid @enderror">
-                @error('name')
-                <div class="alert-danger">{{$message}}</div>
-                @enderror
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Family</label>
-                <input name="family" type="text" id="family" placeholder="family" class="form-control">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label for="mobile">Mobile</label>
-                <input name="mobile" type="text" id="mobile" placeholder="mobile"
-                       class="form-control @error('mobile') is-invalid @enderror">
-                @error('mobile')
-                <div class="alert-danger">{{$message}}</div>
-                @enderror
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Gender</label>
-                <div id="gender" class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default">
-                        <input name="gender" type="radio" value="1">male
-                    </label>
-                    <label class="btn btn-default">
-                        <input name="gender" type="radio" value="2">female
-                    </label>
-                    <label class="btn btn-default">
-                        <input name="gender" type="radio" value="3">prefer not to say
-                    </label>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Birth Date</label>
-                <input name="birth_date" type="date" id="birth_date" placeholder="birth_date" class="form-control">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>National Code</label>
-                <input name="national_code" type="text" id="national_code" placeholder="national_code"
-                       class="form-control">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Job</label>
-                <input name="job" type="text" id="job" placeholder="job" class="form-control">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Province</label>
-                <select class="form-control" name="province_id">
-                    @foreach($provinces as $province)
-                        <option value="{{$province->id}}"> {{$province->name}} </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>City</label>
-                <select class="form-control" name="city_id">
-                    @foreach($cities as $city)
-                        <option value="{{$city->id}}"> {{$city->name}} </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Username</label>
-                <input name="username" type="text" id="username" placeholder="username" class="form-control">
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                <label>Password</label>
-                <input name="password" type="password" id="password" placeholder="password"
-                       class="form-control @error('password') is-invalid @enderror">
-                @error('password')
-                <div class="alert-danger">{{$message}}</div>
-                @enderror
-            </div>
+            <x-input label="Name" name="name" type="text" id="name" placeholder="name"/>
+            <x-input label="Family" name="family" type="text" id="family" placeholder="family"/>
+            <x-input label="Mobile" name="mobile" type="number" id="mobile" placeholder="mobile"/>
+            <x-select label="Gender" id="gender" name="gender" :values="[1 => 'male', 2 => 'female', 3 => 'prefer not to say']"/>
+            <x-input label="Birth Date" name="birth_date" type="date" id="birth_date" placeholder="birth date"/>
+            <x-input label="National Code" name="national_code" type="text" id="national_code" placeholder="national_code"/>
+            <x-input label="Job" name="job" type="text" id="job" placeholder="job"/>
+            <x-province-city/>
+            <x-input label="Username" name="username" type="text" id="username" placeholder="username"/>
+            <x-input label="Password" name="password" type="password" id="password" placeholder="password"/>
             <input name="lat" type="hidden" class="form-control" placeholder="lat">
             <input name="lan" type="hidden" class="form-control" placeholder="lan">
             <div>                                                     {{-- Address --}}
@@ -143,3 +78,21 @@
         }
     </script>
 @endsection
+
+
+{{--            <div class="col-md-6 col-sm-6 col-xs-12 form-group">--}}
+{{--                <label>Name</label>--}}
+{{--                <input name="name" type="text" id="name" placeholder="name"--}}
+{{--                       class="form-control @error('name') is-invalid @enderror">--}}
+{{--                @error('name')--}}
+{{--                <div class="alert-danger">{{$message}}</div>--}}
+{{--                @enderror--}}
+{{--            </div>--}}
+{{--            <div class="col-md-6 col-sm-6 col-xs-12 form-group">--}}
+{{--                <label>Password</label>--}}
+{{--                <input name="password" type="password" id="password" placeholder="password"--}}
+{{--                       class="form-control @error('password') is-invalid @enderror">--}}
+{{--                @error('password')--}}
+{{--                <div class="alert-danger">{{$message}}</div>--}}
+{{--                @enderror--}}
+{{--            </div>--}}

@@ -4,11 +4,15 @@ A Jalaali (Jalali, Persian, Khorshidi, Shamsi) calendar system plugin for moment
 
 [![Build Status](https://travis-ci.org/jalaali/moment-jalaali.png?branch=master)](https://travis-ci.org/jalaali/moment-jalaali)
 
-Jalali calendar is a solar calendar that was used in Persia, variants of which today are still in use in Iran as well as Afghanistan. [Read more on Wikipedia](http://en.wikipedia.org/wiki/Jalali_calendar) or see [Calendar Converter](http://www.fourmilab.ch/documents/calendar/).
+Jalali calendar is a solar calendar that was used in Persia, variants of which today are still in use in Iran as well as
+Afghanistan. [Read more on Wikipedia](http://en.wikipedia.org/wiki/Jalali_calendar) or
+see [Calendar Converter](http://www.fourmilab.ch/documents/calendar/).
 
 This plugin adds Jalaali calendar support to [momentjs](http://momentjs.com) library.
 
-Calendar conversion is based on the [algorithm provided by Kazimierz M. Borkowski](http://www.astro.uni.torun.pl/~kb/Papers/EMP/PersianC-EMP.htm) and has a very good performance.
+Calendar conversion is based on
+the [algorithm provided by Kazimierz M. Borkowski](http://www.astro.uni.torun.pl/~kb/Papers/EMP/PersianC-EMP.htm) and
+has a very good performance.
 
 ## Where to use it
 
@@ -19,7 +23,6 @@ Like `momentjs`, `moment-jalaali` works in browser and in Node.js.
 ```shell
 npm install moment-jalaali
 ```
-
 
 ```js
 var moment = require('moment-jalaali')
@@ -38,7 +41,8 @@ You may use the `node_modules/build/moment-jalaali.js` file.
 
 ## API
 
-This plugin tries to mimic `momentjs` api. Basically, when you want to format or parse a string, just add a `j` to the format token like 'jYYYY' or 'jM'. For example:
+This plugin tries to mimic `momentjs` api. Basically, when you want to format or parse a string, just add a `j` to the
+format token like 'jYYYY' or 'jM'. For example:
 
 ```js
 m = moment('1360/5/26', 'jYYYY/jM/jD') // Parse a Jalaali date
@@ -92,12 +96,13 @@ moment.loadPersian([options])
 
 ### Options
 
-| Param            | Type    | Default   | Description                               | Example                                      |
-| ---------------- | ------- | -------   | ----------------------------------------  | -------------------------------------------- |
-| usePersianDigits | Boolean | `false`   | Use persian digits (Use at your own risk) | `moment.loadPersian({usePersianDigits: true})` |
+| Param            | Type    | Default   | Description                                    | Example                                           |
+|------------------|---------|-----------|------------------------------------------------|---------------------------------------------------|
+| usePersianDigits | Boolean | `false`   | Use persian digits (Use at your own risk)      | `moment.loadPersian({usePersianDigits: true})`    |
 | dialect *        | String  | `persian` | Available values = `persian`, `persian-modern` | `moment.loadPersian({dialect: 'persian-modern'})` |
 
 *use dialect option to change `usePersian` dialect, available options are:
+
 * persian: default dialect(امرداد، آدینه، ...)
 * persian-modern: modern dialect(مرداد، جمعه، ...)
 
@@ -105,15 +110,20 @@ moment.loadPersian([options])
 
 ### ng-jalali-flat-datepicker
 
-A lightweight angular.js date picker using `moment-jalaali` is [thg303/ng-jalali-flat-datepicker](https://github.com/thg303/ng-jalali-flat-datepicker) created by [@thg303](https://github.com/thg303).
+A lightweight angular.js date picker using `moment-jalaali`
+is [thg303/ng-jalali-flat-datepicker](https://github.com/thg303/ng-jalali-flat-datepicker) created
+by [@thg303](https://github.com/thg303).
 
 ### pholiday
 
-A library based on `moment-jalaali` for calculating holidays in Persian calendar is [shkarimpour/pholiday](https://github.com/shkarimpour/pholiday) created by [@shkarimpour](https://github.com/shkarimpour).
+A library based on `moment-jalaali` for calculating holidays in Persian calendar
+is [shkarimpour/pholiday](https://github.com/shkarimpour/pholiday) created
+by [@shkarimpour](https://github.com/shkarimpour).
 
 ### moment-hijri
 
-Another calendar system plugin for `momentjs` is [moment-hijri](https://github.com/xsoh/moment-hijri) created by [@xsoh](https://github.com/xsoh).
+Another calendar system plugin for `momentjs` is [moment-hijri](https://github.com/xsoh/moment-hijri) created
+by [@xsoh](https://github.com/xsoh).
 
 ## License
 

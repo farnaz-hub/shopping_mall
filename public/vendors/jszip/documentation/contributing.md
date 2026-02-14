@@ -4,7 +4,6 @@ layout: default
 section: main
 ---
 
-
 ### Download the sources
 
 You should create a [Github](https://github.com/) account and

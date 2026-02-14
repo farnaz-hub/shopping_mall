@@ -26,9 +26,9 @@ input.autocomplete({
 
 // Local lookup (no ajax):
 var countries = [
-    { value: 'Andorra', data: 'AD' },
+    {value: 'Andorra', data: 'AD'},
     // ...
-    { value: 'Zimbabwe', data: 'ZZ' }
+    {value: 'Zimbabwe', data: 'ZZ'}
 ];
 
 input.autocomplete({
@@ -41,7 +41,7 @@ input.autocomplete({
 // Non standard query/results
 input.autocomplete({
     paramName: 'searchString',
-    transformResult: function(response: any, originalQuery: string): AutocompleteResponse {
+    transformResult: function (response: any, originalQuery: string): AutocompleteResponse {
         return {
             suggestions: $.map(response.myData, function (dataItem) {
                 return {value: dataItem.valueField, data: dataItem.dataField};
@@ -98,13 +98,13 @@ input.autocomplete({
         console.log("errorThrown: ", errorThrown);
     },
     transformResult(response: any, originalQuery: string): AutocompleteResponse {
-       return {
-           suggestions: [
-               { value: 'Andorra', data: 'AD' },
-               // ...
-               { value: 'Zimbabwe', data: 'ZZ' }
-           ]
-       }
+        return {
+            suggestions: [
+                {value: 'Andorra', data: 'AD'},
+                // ...
+                {value: 'Zimbabwe', data: 'ZZ'}
+            ]
+        }
     },
     onSelect(suggestion: AutocompleteSuggestion) {
         console.log("suggestions: ", suggestion);
@@ -112,9 +112,9 @@ input.autocomplete({
     minChars: 1,
     lookupLimit: 1,
     lookup: [
-        { value: 'Andorra', data: 'AD' },
+        {value: 'Andorra', data: 'AD'},
         // ...
-        { value: 'Zimbabwe', data: 'ZZ' }
+        {value: 'Zimbabwe', data: 'ZZ'}
     ],
     lookupFilter(suggestion: AutocompleteSuggestion, query: string, queryLowercase: string): any {
         return query !== "query"

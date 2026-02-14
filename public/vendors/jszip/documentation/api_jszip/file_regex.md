@@ -10,9 +10,9 @@ The regex is tested against the relative filename.
 
 __Arguments__
 
-name  | type   | description
-------|--------|------------
-regex | RegExp | the regex to use.
+ name  | type   | description       
+-------|--------|-------------------
+ regex | RegExp | the regex to use. 
 
 __Returns__ : An array of matching files (an empty array if none matched). Each
 maching file is an instance of [ZipObject]({{site.baseurl}}/documentation/api_zipobject.html).

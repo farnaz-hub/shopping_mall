@@ -22,7 +22,6 @@ zip.file("test.txt").date
 zip.file("test.txt").dir
 ```
 
-
 ### From 2.0.0 to 2.1.0
 
 * The packaging changed : instead of loading jszip.js, jszip-load.js,
@@ -30,7 +29,6 @@ zip.file("test.txt").dir
   dist/jszip.min.js.
   For AMD loader users : JSZip now registers itself. You just have to put the
   file at the right place or configure your loader.
-
 
 ### From 1.x to 2.x
 

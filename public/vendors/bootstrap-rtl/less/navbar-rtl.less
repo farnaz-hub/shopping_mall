@@ -10,9 +10,9 @@
 
 .navbar-header {
 
-  @media (min-width: @grid-float-breakpoint) {
-    float: right;
-  }
+    @media (min-width: @grid-float-breakpoint) {
+        float: right;
+    }
 }
 
 
@@ -27,23 +27,23 @@
 // content for the user's viewport.
 
 .navbar-collapse {
-  padding-right: @navbar-padding-horizontal;
-  padding-left:  @navbar-padding-horizontal;
+    padding-right: @navbar-padding-horizontal;
+    padding-left: @navbar-padding-horizontal;
 }
 
 
 // Brand/project name
 
 .navbar-brand {
-  float: right;
+    float: right;
 
-  @media (min-width: @grid-float-breakpoint) {
-    .navbar > .container &,
-    .navbar > .container-fluid & {
-      margin-right: -@navbar-padding-horizontal;
-      margin-left: auto;
+    @media (min-width: @grid-float-breakpoint) {
+        .navbar > .container &,
+        .navbar > .container-fluid & {
+            margin-right: -@navbar-padding-horizontal;
+            margin-left: auto;
+        }
     }
-  }
 }
 
 
@@ -53,9 +53,9 @@
 // JavaScript plugin.
 
 .navbar-toggle {
-  float: left;
-  margin-left: @navbar-padding-horizontal;
-  margin-right: auto;
+    float: left;
+    margin-left: @navbar-padding-horizontal;
+    margin-right: auto;
 }
 
 
@@ -66,52 +66,52 @@
 
 .navbar-nav {
 
-  @media (max-width: @grid-float-breakpoint-max) {
-    // Dropdowns get custom display when collapsed
-    .open .dropdown-menu {
-      > li > a,
-      .dropdown-header {
-        padding: 5px 25px 5px 15px;
-      }
-    }
-  }
-
-  // Uncollapse the nav
-  @media (min-width: @grid-float-breakpoint) {
-    float: right;
-
-    > li {
-      float: right;
+    @media (max-width: @grid-float-breakpoint-max) {
+        // Dropdowns get custom display when collapsed
+        .open .dropdown-menu {
+            > li > a,
+            .dropdown-header {
+                padding: 5px 25px 5px 15px;
+            }
+        }
     }
 
-  }
+    // Uncollapse the nav
+    @media (min-width: @grid-float-breakpoint) {
+        float: right;
+
+        > li {
+            float: right;
+        }
+
+    }
 }
 
 @media (min-width: @grid-float-breakpoint) {
-  .navbar-left {
+    .navbar-left {
 
-    &.flip {
-      float: right !important;
-    }
-  }
-
-  .navbar-right {
-    &:last-child {
-      margin-left: -@navbar-padding-horizontal;
-      margin-right: auto;
+        &.flip {
+            float: right !important;
+        }
     }
 
-    &.flip {
-      float: left !important;
-      margin-left: -@navbar-padding-horizontal;
-      margin-right: auto;
-    }
+    .navbar-right {
+        &:last-child {
+            margin-left: -@navbar-padding-horizontal;
+            margin-right: auto;
+        }
 
-    .dropdown-menu {
-      left: 0;
-      right: auto;
+        &.flip {
+            float: left !important;
+            margin-left: -@navbar-padding-horizontal;
+            margin-right: auto;
+        }
+
+        .dropdown-menu {
+            left: 0;
+            right: auto;
+        }
     }
-  }
 }
 
 // Text in navbars
@@ -120,15 +120,15 @@
 
 .navbar-text {
 
-  @media (min-width: @grid-float-breakpoint) {
-    float: right;
+    @media (min-width: @grid-float-breakpoint) {
+        float: right;
 
-    // Outdent the form if last child to line up with content down the page
-    &.navbar-right:last-child {
-      margin-left: 0;
-      margin-right: auto;
+        // Outdent the form if last child to line up with content down the page
+        &.navbar-right:last-child {
+            margin-left: 0;
+            margin-right: auto;
+        }
     }
-  }
 }
 
 

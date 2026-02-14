@@ -21,7 +21,8 @@ class Customer extends Model
     }
 
 
-    public function city(){
+    public function city()
+    {
         return $this->belongsTo(City::class);
     }
 }

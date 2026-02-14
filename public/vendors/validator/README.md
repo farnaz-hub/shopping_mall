@@ -1,8 +1,11 @@
 validator
 =========
-The javascript validation code is based on jQuery. The Validator is cross-browser and will give you the power to use future-proof input types such as ‘tel’, ‘email’, ‘number’, ‘date’, and ‘url’. I can sum this as a ‘template’ for creating web forms.
+The javascript validation code is based on jQuery. The Validator is cross-browser and will give you the power to use
+future-proof input types such as ‘tel’, ‘email’, ‘number’, ‘date’, and ‘url’. I can sum this as a ‘template’ for
+creating web forms.
 
-In the semantic point-of-view, I believe that this method is very clean and…appropriate. This is how forms should be, IMHO.
+In the semantic point-of-view, I believe that this method is very clean and…appropriate. This is how forms should be,
+IMHO.
 
 [DEMO PAGE](http://yaireo.github.io/validator)
 
@@ -15,7 +18,9 @@ In the semantic point-of-view, I believe that this method is very clean and…ap
 * Light-weight (10kb + comments)
 
 ## Validation types support
-HTML5 offers a wide selection of input types. I saw no need to support them all, for example, a checkbox should not be validated as ‘required’ because why wouldn’t it be checked in the first place when the form is rendered?
+
+HTML5 offers a wide selection of input types. I saw no need to support them all, for example, a checkbox should not be
+validated as ‘required’ because why wouldn’t it be checked in the first place when the form is rendered?
 
 For a full list of all the available Types, visit the working draft page.
 These input types can be validated by the the JS for – `<input type='foo' name='bar' />`. (Support is synthesized)
@@ -37,8 +42,8 @@ The below form elements are also supported:
 * Select – Useing a ‘required’ class because there is no such attribute for ‘select’ element
 * Textarea
 
-
 ## Basic semantics
+
     <form action="" method="post" novalidate>
     	<fieldset>
     		<div class="item">
@@ -62,12 +67,21 @@ The below form elements are also supported:
     		</div>
          		...
 
-
 ### Explaining the DOM
-First, obviously, there is a Form element with the novalidate attribute to make sure to disable the native HTML5 validations (which currently suck). proceeding it there is a Fieldset element which is not a must, but acts as a “binding” box for a group of fields that are under the same “category”. For bigger forms there are many times field groups that are visually separated from each other for example. Now, we treat every form field element the user interacts with, whatsoever, as an “item”, and therefor these “items” will be wraped with `<div class='item'>`. This isolation gives great powers.
-Next, inside an item, there will typically be an input or select or something of the sort, so they are put inside a `<label>` element, to get rid of the (annoying) for attribute, on the label (which also require us to give an ID to the form field element), and now when a user clicks on the label, the field will get focused. great. Going back to the label’s text itself, we wrap it with a `<span>` to have control over it’s style.
 
-The whole approach here is to define each form field (input, select, whatever) as much as possible with HTML5 attributes and also with custom attributes.
+First, obviously, there is a Form element with the novalidate attribute to make sure to disable the native HTML5
+validations (which currently suck). proceeding it there is a Fieldset element which is not a must, but acts as a
+“binding” box for a group of fields that are under the same “category”. For bigger forms there are many times field
+groups that are visually separated from each other for example. Now, we treat every form field element the user
+interacts with, whatsoever, as an “item”, and therefor these “items” will be wraped with `<div class='item'>`. This
+isolation gives great powers.
+Next, inside an item, there will typically be an input or select or something of the sort, so they are put inside a
+`<label>` element, to get rid of the (annoying) for attribute, on the label (which also require us to give an ID to the
+form field element), and now when a user clicks on the label, the field will get focused. great. Going back to the
+label’s text itself, we wrap it with a `<span>` to have control over it’s style.
+
+The whole approach here is to define each form field (input, select, whatever) as much as possible with HTML5 attributes
+and also with custom attributes.
 
 | Attribute                  | Purpose                                                                                                                                                                                                                                                                                                                         |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,16 +94,16 @@ The whole approach here is to define each form field (input, select, whatever) a
 | data-validate-linked       | Defines the field which the current field’s value (the attribute is set on) should be compared to                                                                                                                                                                                                                               |
 | data-validate-minmax       | For type `number` only. Defines the minimum and/or maximum value that can be in that field                                                                                                                                                                                                                                      |
 
-
-
-
 ### Optional fields
-There is also support for optional fields, which are not validated, unless they have a value. The support for this feature is done by adding a class “optional” to a form element. Note that this should not be done along side the “required” attribute.
 
-
+There is also support for optional fields, which are not validated, unless they have a value. The support for this
+feature is done by adding a class “optional” to a form element. Note that this should not be done along side the
+“required” attribute.
 
 ## Error messages
-The validator function holds a messages object called "message", which itself holds all the error messages being shown to the user for all sort of validation errors.
+
+The validator function holds a messages object called "message", which itself holds all the error messages being shown
+to the user for all sort of validation errors.
 
     message = {
     	invalid			: 'invalid input',
@@ -108,20 +122,25 @@ The validator function holds a messages object called "message", which itself ho
     	select			: 'Please select an option'
     };
 
-This object can be extended easily. The idea is to extend it with new keys which represent the name of the field you want the message to be linked to, and that custom message appear as the `general error` one. Default messages can be over-ride.
+This object can be extended easily. The idea is to extend it with new keys which represent the name of the field you
+want the message to be linked to, and that custom message appear as the `general error` one. Default messages can be
+over-ride.
 Example: for a given type ‘date’ field, lets set a custom (general error) message like so:
-    `validator.message['date'] = 'not a real date';`
+`validator.message['date'] = 'not a real date';`
 
 Error messages can be disabled:
-    `validator.defaults.alerts = false;`
+`validator.defaults.alerts = false;`
 
 ## Binding the validation to a form
 
-There are 2 ways to validate form fields, one is on the submit event of the form itself, then all the fields are evaluated one by one. The other method is by binding the ‘checkField’ function itself to each field, for events like “Blur”, “Change” or whatever event you wish (I prefer on Blur).
+There are 2 ways to validate form fields, one is on the submit event of the form itself, then all the fields are
+evaluated one by one. The other method is by binding the ‘checkField’ function itself to each field, for events like
+“Blur”, “Change” or whatever event you wish (I prefer on Blur).
 
 ###Usage example - validate on submit
 
-A generic callback function using jQuery to have the form validated on the **Submit** event. You can also include your own personal validations before the **checkAll()** call.
+A generic callback function using jQuery to have the form validated on the **Submit** event. You can also include your
+own personal validations before the **checkAll()** call.
 
     $('form').submit(function(e){
     	e.preventDefault();
@@ -145,9 +164,12 @@ Check every field once it looses focus (onBlur) event
 
 ## Tooltips
 
-The helper tooltips **&lt;div class='tooltip help'&gt;**, which work using pure CSS, are element which holds a small **'?'** icon and when hovered over with the mouse, reveals a text explaining what the field “item” is about or for example, what the allowed input format is.
+The helper tooltips **&lt;div class='tooltip help'&gt;**, which work using pure CSS, are element which holds a small *
+*'?'** icon and when hovered over with the mouse, reveals a text explaining what the field “item” is about or for
+example, what the allowed input format is.
 
 ## Classes
+
 `validator.defaults.classes` object can be modified with these classes:
 
     item    : 'item',  // class for each input wrapper
@@ -156,4 +178,6 @@ The helper tooltips **&lt;div class='tooltip help'&gt;**, which work using pure 
 
 ## Bonos – multifields
 
-I have a cool feature I wrote which I call “multifields”. These are fields which are often use as to input a credit card or a serial number, and are actually a bunch of input fields which are “connected” to each other, and treated as one. You can see it in the demo page, and it’s included in ‘multifield.js’ file.
+I have a cool feature I wrote which I call “multifields”. These are fields which are often use as to input a credit card
+or a serial number, and are actually a bunch of input fields which are “connected” to each other, and treated as one.
+You can see it in the demo page, and it’s included in ‘multifield.js’ file.

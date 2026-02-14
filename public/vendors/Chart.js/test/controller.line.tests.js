@@ -1,15 +1,15 @@
 // Test the line controller
-describe('Line controller tests', function() {
-	
-	beforeEach(function() {
+describe('Line controller tests', function () {
+
+	beforeEach(function () {
 		window.addDefaultMatchers(jasmine);
 	});
 
-	afterEach(function() {
+	afterEach(function () {
 		window.releaseAllCharts();
 	});
-	
-	it('should be constructed', function() {
+
+	it('should be constructed', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -30,7 +30,7 @@ describe('Line controller tests', function() {
 		expect(meta.controller.index).toBe(1);
 	});
 
-	it('Should use the first scale IDs if the dataset does not specify them', function() {
+	it('Should use the first scale IDs if the dataset does not specify them', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -56,7 +56,7 @@ describe('Line controller tests', function() {
 		expect(meta.yAxisID).toBe('firstYScaleID');
 	});
 
-	it('Should create line elements and point elements for each data item during initialization', function() {
+	it('Should create line elements and point elements for each data item during initialization', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -77,7 +77,7 @@ describe('Line controller tests', function() {
 		expect(meta.dataset instanceof Chart.elements.Line).toBe(true); // 1 line element
 	});
 
-	it('should draw all elements', function() {
+	it('should draw all elements', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -107,7 +107,7 @@ describe('Line controller tests', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should draw all elements except lines', function() {
+	it('should draw all elements except lines', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -130,7 +130,7 @@ describe('Line controller tests', function() {
 		spyOn(meta.data[3], 'draw');
 
 		chart.update();
-		
+
 		expect(meta.dataset.draw.calls.count()).toBe(0);
 		expect(meta.data[0].draw.calls.count()).toBe(1);
 		expect(meta.data[1].draw.calls.count()).toBe(1);
@@ -138,7 +138,7 @@ describe('Line controller tests', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should draw all elements except lines turned off per dataset', function() {
+	it('should draw all elements except lines turned off per dataset', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -162,7 +162,7 @@ describe('Line controller tests', function() {
 		spyOn(meta.data[3], 'draw');
 
 		chart.update();
-		
+
 		expect(meta.dataset.draw.calls.count()).toBe(0);
 		expect(meta.data[0].draw.calls.count()).toBe(1);
 		expect(meta.data[1].draw.calls.count()).toBe(1);
@@ -170,16 +170,16 @@ describe('Line controller tests', function() {
 		expect(meta.data[3].draw.calls.count()).toBe(1);
 	});
 
-	it('should update elements when modifying data', function() {
+	it('should update elements when modifying data', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
-					datasets: [{
-						data: [10, 15, 0, -4],
-						label: 'dataset',
-						xAxisID: 'firstXScaleID',
-						yAxisID: 'firstYScaleID'
-					}],
+				datasets: [{
+					data: [10, 15, 0, -4],
+					label: 'dataset',
+					xAxisID: 'firstXScaleID',
+					yAxisID: 'firstYScaleID'
+				}],
 				labels: ['label1', 'label2', 'label3', 'label4']
 			},
 			options: {
@@ -200,20 +200,20 @@ describe('Line controller tests', function() {
 				}
 			},
 		});
-		
+
 		var meta = chart.getDatasetMeta(0);
 		expect(meta.data.length).toBe(4);
-		
+
 		chart.data.datasets[0].data = [1, 2]; // remove 2 items
 		chart.data.datasets[0].borderWidth = 1;
 		chart.update();
 
 		expect(meta.data.length).toBe(2);
-		
-		
-		[	{ x:  44, y: 484 },
-			{ x: 193, y:  32 }
-		].forEach(function(expected, i) {
+
+
+		[{x: 44, y: 484},
+			{x: 193, y: 32}
+		].forEach(function (expected, i) {
 			expect(meta.data[i]._datasetIndex).toBe(0);
 			expect(meta.data[i]._index).toBe(i);
 			expect(meta.data[i]._xScale).toBe(chart.scales.firstXScaleID);
@@ -225,14 +225,14 @@ describe('Line controller tests', function() {
 				borderColor: 'blue',
 			}));
 		});
-		
+
 		chart.data.datasets[0].data = [1, 2, 3]; // add 1 items
 		chart.update();
 
 		expect(meta.data.length).toBe(3); // should add a new meta data item
 	});
 
-	it('should update elements when the y scale is stacked', function() {
+	it('should update elements when the y scale is stacked', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -253,32 +253,32 @@ describe('Line controller tests', function() {
 				}
 			}
 		});
-		
+
 		var meta0 = chart.getDatasetMeta(0);
 
-		[	{ x:  38, y: 161 },
-			{ x: 189, y: 419 },
-			{ x: 341, y: 161 },
-			{ x: 492, y: 419 }
-		].forEach(function(values, i) {
-				expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
-				expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
+		[{x: 38, y: 161},
+			{x: 189, y: 419},
+			{x: 341, y: 161},
+			{x: 492, y: 419}
+		].forEach(function (values, i) {
+			expect(meta0.data[i]._model.x).toBeCloseToPixel(values.x);
+			expect(meta0.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
 
 		var meta1 = chart.getDatasetMeta(1);
 
-		[	{ x:  38, y:  32 },
-			{ x: 189, y:  97 },
-			{ x: 341, y: 161 },
-			{ x: 492, y: 471 }
-		].forEach(function(values, i) {
-				expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
-				expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
+		[{x: 38, y: 32},
+			{x: 189, y: 97},
+			{x: 341, y: 161},
+			{x: 492, y: 471}
+		].forEach(function (values, i) {
+			expect(meta1.data[i]._model.x).toBeCloseToPixel(values.x);
+			expect(meta1.data[i]._model.y).toBeCloseToPixel(values.y);
 		});
-		
+
 	});
 
-	it('should find the correct scale zero when the data is all positive', function() {
+	it('should find the correct scale zero when the data is all positive', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -289,9 +289,9 @@ describe('Line controller tests', function() {
 				labels: ['label1', 'label2', 'label3', 'label4']
 			},
 		});
-		
+
 		var meta = chart.getDatasetMeta(0);
-		
+
 		expect(meta.dataset._model).toEqual(jasmine.objectContaining({
 			scaleTop: 32,
 			scaleBottom: 484,
@@ -299,7 +299,7 @@ describe('Line controller tests', function() {
 		}));
 	});
 
-	it('should find the correct scale zero when the data is all negative', function() {
+	it('should find the correct scale zero when the data is all negative', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -310,9 +310,9 @@ describe('Line controller tests', function() {
 				labels: ['label1', 'label2', 'label3', 'label4']
 			},
 		});
-		
+
 		var meta = chart.getDatasetMeta(0);
-		
+
 		expect(meta.dataset._model).toEqual(jasmine.objectContaining({
 			scaleTop: 32,
 			scaleBottom: 484,
@@ -320,14 +320,14 @@ describe('Line controller tests', function() {
 		}));
 	});
 
-	it('should fall back to the line styles for points', function() {
+	it('should fall back to the line styles for points', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
 				datasets: [{
 					data: [0, 0],
 					label: 'dataset1',
-	
+
 					// line styles
 					backgroundColor: 'rgb(98, 98, 98)',
 					borderColor: 'rgb(8, 8, 8)',
@@ -344,7 +344,7 @@ describe('Line controller tests', function() {
 		expect(meta.dataset._model.borderWidth).toBe(0.55);
 	});
 
-	it('should handle number of data point changes in update', function() {
+	it('should handle number of data point changes in update', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -355,9 +355,9 @@ describe('Line controller tests', function() {
 				labels: ['label1', 'label2', 'label3', 'label4']
 			}
 		});
-		
+
 		var meta = chart.getDatasetMeta(0);
-		
+
 		chart.data.datasets[0].data = [1, 2]; // remove 2 items
 		chart.update();
 		expect(meta.data.length).toBe(2);
@@ -374,7 +374,7 @@ describe('Line controller tests', function() {
 		expect(meta.data[4] instanceof Chart.elements.Point).toBe(true);
 	});
 
-	it('should set point hover styles', function() {
+	it('should set point hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {
@@ -398,7 +398,7 @@ describe('Line controller tests', function() {
 				}
 			}
 		});
-		
+
 		var meta = chart.getDatasetMeta(0);
 		var point = meta.data[0];
 
@@ -446,7 +446,7 @@ describe('Line controller tests', function() {
 		expect(point._model.radius).toBe(4.4);
 	});
 
-	it('should remove hover styles', function() {
+	it('should remove hover styles', function () {
 		var chart = window.acquireChart({
 			type: 'line',
 			data: {

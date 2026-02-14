@@ -4,7 +4,7 @@ var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=
 
 
 // public method for encoding
-exports.encode = function(input, utf8) {
+exports.encode = function (input, utf8) {
     var output = "";
     var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
     var i = 0;
@@ -22,8 +22,7 @@ exports.encode = function(input, utf8) {
 
         if (isNaN(chr2)) {
             enc3 = enc4 = 64;
-        }
-        else if (isNaN(chr3)) {
+        } else if (isNaN(chr3)) {
             enc4 = 64;
         }
 
@@ -35,7 +34,7 @@ exports.encode = function(input, utf8) {
 };
 
 // public method for decoding
-exports.decode = function(input, utf8) {
+exports.decode = function (input, utf8) {
     var output = "";
     var chr1, chr2, chr3;
     var enc1, enc2, enc3, enc4;

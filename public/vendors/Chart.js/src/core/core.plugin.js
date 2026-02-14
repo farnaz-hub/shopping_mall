@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var noop = Chart.helpers.noop;
 
@@ -16,9 +16,9 @@ module.exports = function(Chart) {
 		 * Registers the given plugin(s) if not already registered.
 		 * @param {Array|Object} plugins plugin instance(s).
 		 */
-		register: function(plugins) {
+		register: function (plugins) {
 			var p = this._plugins;
-			([]).concat(plugins).forEach(function(plugin) {
+			([]).concat(plugins).forEach(function (plugin) {
 				if (p.indexOf(plugin) === -1) {
 					p.push(plugin);
 				}
@@ -29,9 +29,9 @@ module.exports = function(Chart) {
 		 * Unregisters the given plugin(s) only if registered.
 		 * @param {Array|Object} plugins plugin instance(s).
 		 */
-		unregister: function(plugins) {
+		unregister: function (plugins) {
 			var p = this._plugins;
-			([]).concat(plugins).forEach(function(plugin) {
+			([]).concat(plugins).forEach(function (plugin) {
 				var idx = p.indexOf(plugin);
 				if (idx !== -1) {
 					p.splice(idx, 1);
@@ -43,7 +43,7 @@ module.exports = function(Chart) {
 		 * Remove all registered p^lugins.
 		 * @since 2.1.5
 		 */
-		clear: function() {
+		clear: function () {
 			this._plugins = [];
 		},
 
@@ -52,7 +52,7 @@ module.exports = function(Chart) {
 		 * @returns {Number}
 		 * @since 2.1.5
 		 */
-		count: function() {
+		count: function () {
 			return this._plugins.length;
 		},
 
@@ -61,7 +61,7 @@ module.exports = function(Chart) {
 		 * @returns {Array} array of plugin objects.
 		 * @since 2.1.5
 		 */
-		getAll: function() {
+		getAll: function () {
 			return this._plugins;
 		},
 
@@ -73,12 +73,12 @@ module.exports = function(Chart) {
 		 * @param {Array} [args] extra arguments to apply to the extension call.
 		 * @returns {Boolean} false if any of the plugins return false, else returns true.
 		 */
-		notify: function(extension, args) {
+		notify: function (extension, args) {
 			var plugins = this._plugins;
 			var ilen = plugins.length;
 			var i, plugin;
 
-			for (i=0; i<ilen; ++i) {
+			for (i = 0; i < ilen; ++i) {
 				plugin = plugins[i];
 				if (typeof plugin[extension] === 'function') {
 					if (plugin[extension].apply(plugin, args || []) === false) {

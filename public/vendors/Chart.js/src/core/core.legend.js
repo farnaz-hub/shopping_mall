@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 	var noop = helpers.noop;
@@ -13,13 +13,13 @@ module.exports = function(Chart) {
 		reverse: false,
 
 		// a callback that will handle
-		onClick: function(e, legendItem) {
+		onClick: function (e, legendItem) {
 			var index = legendItem.datasetIndex;
 			var ci = this.chart;
 			var meta = ci.getDatasetMeta(index);
 
 			// See controller.isDatasetVisible comment
-			meta.hidden = meta.hidden === null? !ci.data.datasets[index].hidden : null;
+			meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
 
 			// We hid a dataset ... rerender the chart
 			ci.update();
@@ -39,9 +39,9 @@ module.exports = function(Chart) {
 			// lineDashOffset :
 			// lineJoin :
 			// lineWidth :
-			generateLabels: function(chart) {
+			generateLabels: function (chart) {
 				var data = chart.data;
-				return helpers.isArray(data.datasets) ? data.datasets.map(function(dataset, i) {
+				return helpers.isArray(data.datasets) ? data.datasets.map(function (dataset, i) {
 					return {
 						text: dataset.label,
 						fillStyle: (!helpers.isArray(dataset.backgroundColor) ? dataset.backgroundColor : dataset.backgroundColor[0]),
@@ -63,7 +63,7 @@ module.exports = function(Chart) {
 
 	Chart.Legend = Chart.Element.extend({
 
-		initialize: function(config) {
+		initialize: function (config) {
 			helpers.extend(this, config);
 
 			// Contains hit boxes for each dataset (in dataset order)
@@ -78,7 +78,7 @@ module.exports = function(Chart) {
 		// Any function can be extended by the legend type
 
 		beforeUpdate: noop,
-		update: function(maxWidth, maxHeight, margins) {
+		update: function (maxWidth, maxHeight, margins) {
 			var me = this;
 
 			// Update Lifecycle - Probably don't want to ever extend or overwrite this function ;)
@@ -112,7 +112,7 @@ module.exports = function(Chart) {
 		//
 
 		beforeSetDimensions: noop,
-		setDimensions: function() {
+		setDimensions: function () {
 			var me = this;
 			// Set the unconstrained dimension before label rotation
 			if (me.isHorizontal()) {
@@ -145,10 +145,10 @@ module.exports = function(Chart) {
 		//
 
 		beforeBuildLabels: noop,
-		buildLabels: function() {
+		buildLabels: function () {
 			var me = this;
 			me.legendItems = me.options.labels.generateLabels.call(me, me.chart);
-			if(me.options.reverse){
+			if (me.options.reverse) {
 				me.legendItems.reverse();
 			}
 		},
@@ -157,7 +157,7 @@ module.exports = function(Chart) {
 		//
 
 		beforeFit: noop,
-		fit: function() {
+		fit: function () {
 			var me = this;
 			var opts = me.options;
 			var labelOpts = opts.labels;
@@ -200,7 +200,7 @@ module.exports = function(Chart) {
 					ctx.textAlign = "left";
 					ctx.textBaseline = 'top';
 
-					helpers.each(me.legendItems, function(legendItem, i) {
+					helpers.each(me.legendItems, function (legendItem, i) {
 						var width = labelOpts.boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
 						if (lineWidths[lineWidths.length - 1] + width + labelOpts.padding >= me.width) {
 							totalHeight += fontSize + (labelOpts.padding);
@@ -228,7 +228,7 @@ module.exports = function(Chart) {
 					var currentColHeight = 0;
 					var itemHeight = fontSize + vPadding;
 
-					helpers.each(me.legendItems, function(legendItem, i) {
+					helpers.each(me.legendItems, function (legendItem, i) {
 						var itemWidth = labelOpts.boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
 
 						// If too tall, go to new column
@@ -265,12 +265,12 @@ module.exports = function(Chart) {
 		afterFit: noop,
 
 		// Shared Methods
-		isHorizontal: function() {
+		isHorizontal: function () {
 			return this.options.position === "top" || this.options.position === "bottom";
 		},
 
 		// Actualy draw the legend on the canvas
-		draw: function() {
+		draw: function () {
 			var me = this;
 			var opts = me.options;
 			var labelOpts = opts.labels;
@@ -302,7 +302,7 @@ module.exports = function(Chart) {
 					hitboxes = me.legendHitBoxes;
 
 				// current position
-				var drawLegendBox = function(x, y, legendItem) {
+				var drawLegendBox = function (x, y, legendItem) {
 					// Set the ctx for the box
 					ctx.save();
 
@@ -324,7 +324,7 @@ module.exports = function(Chart) {
 
 					ctx.restore();
 				};
-				var fillText = function(x, y, legendItem, textWidth) {
+				var fillText = function (x, y, legendItem, textWidth) {
 					ctx.fillText(legendItem.text, boxWidth + (fontSize / 2) + x, y);
 
 					if (legendItem.hidden) {
@@ -354,7 +354,7 @@ module.exports = function(Chart) {
 				}
 
 				var itemHeight = fontSize + labelOpts.padding;
-				helpers.each(me.legendItems, function(legendItem, i) {
+				helpers.each(me.legendItems, function (legendItem, i) {
 					var textWidth = ctx.measureText(legendItem.text).width,
 						width = boxWidth + (fontSize / 2) + textWidth,
 						x = cursor.x,
@@ -373,7 +373,7 @@ module.exports = function(Chart) {
 							cursor.line++;
 						}
 					}
-					
+
 
 					drawLegendBox(x, y, legendItem);
 
@@ -388,13 +388,13 @@ module.exports = function(Chart) {
 					} else {
 						cursor.y += itemHeight;
 					}
-					
+
 				});
 			}
 		},
 
 		// Handle an event
-		handleEvent: function(e) {
+		handleEvent: function (e) {
 			var me = this;
 			var position = helpers.getRelativePosition(e, me.chart.chart),
 				x = position.x,
@@ -421,7 +421,7 @@ module.exports = function(Chart) {
 
 	// Register the legend plugin
 	Chart.plugins.register({
-		beforeInit: function(chartInstance) {
+		beforeInit: function (chartInstance) {
 			var opts = chartInstance.options;
 			var legendOpts = opts.legend;
 

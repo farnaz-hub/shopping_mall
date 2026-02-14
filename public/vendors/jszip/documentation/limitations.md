@@ -11,7 +11,6 @@ All the features of zip files are not supported. Classic zip files will work
 but encrypted zip, multi-volume, etc are not supported and the load() method
 will throw an `Error`.
 
-
 ### ZIP64 and 32bit integers
 
 ZIP64 files can be loaded, but only if the zip file is not "too big". ZIP64 uses 64bits integers
@@ -35,10 +34,10 @@ If you're having performance issues, please consider the following :
 
 * Don't use IE &lt;= 9. Everything is better with typed arrays.
 * Use typed arrays (Uint8Array, ArrayBuffer, etc) if possible :
-  * If you generate a zip file, you should use `type:"uint8array"`
-    (or blob, arraybuffer, nodebuffer).
-  * If you load the file from an ajax call, ask your XHR an ArrayBuffer.
-    Loading a string is asking for troubles.
+    * If you generate a zip file, you should use `type:"uint8array"`
+      (or blob, arraybuffer, nodebuffer).
+    * If you load the file from an ajax call, ask your XHR an ArrayBuffer.
+      Loading a string is asking for troubles.
 * Don't use compression (see below).
 * If you want to get the content of an ASCII file as a string, consider using
   `asBinary()` instead of `asText()`. The transformation

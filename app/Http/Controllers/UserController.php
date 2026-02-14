@@ -9,48 +9,53 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function add(){
+    public function add()
+    {
         $provinces = Province::all();
         $cities = City::all();
         return view('user.add', compact('provinces', 'cities'));
     }
 
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
         User::create([
-            'name' =>$request->get('name'),
-            'family' =>$request->get('family'),
-            'mobile' =>$request->get('mobile'),
-            'gender' =>$request->get('gender'),
-            'birth_date' =>$request->get('birth_date'),
-            'national_code' =>$request->get('national_code'),
-            'province_id' =>$request->get('province_id'),
-            'city_id' =>$request->get('city_id'),
-            'job' =>$request->get('job'),
-            'username' =>$request->get('username'),
-            'password' =>$request->get('password'),
-            'lat' =>$request->get('lat'),
-            'lan' =>$request->get('lan'),
+            'name' => $request->get('name'),
+            'family' => $request->get('family'),
+            'mobile' => $request->get('mobile'),
+            'gender' => $request->get('gender'),
+            'birth_date' => $request->get('birth_date'),
+            'national_code' => $request->get('national_code'),
+            'province_id' => $request->get('province_id'),
+            'city_id' => $request->get('city_id'),
+            'job' => $request->get('job'),
+            'username' => $request->get('username'),
+            'password' => $request->get('password'),
+            'lat' => $request->get('lat'),
+            'lan' => $request->get('lan'),
         ]);
 
         return redirect(route('user.list'));
     }
 
 
-    public function list(){
+    public function list()
+    {
         $users = User::all();
         return view('user.list', compact('users'));
     }
 
 
-    public function show(User $user){
+    public function show(User $user)
+    {
         $provinces = Province::all();
         $cities = City::all();
         return view('user.edit', compact('user', 'provinces', 'cities'));
     }
 
 
-    public function update(Request $request, User $user){
+    public function update(Request $request, User $user)
+    {
         $user->name = $request->get('name');
         $user->family = $request->get('family');
         $user->mobile = $request->get('mobile');
@@ -70,7 +75,8 @@ class UserController extends Controller
     }
 
 
-    public function delete(User $user){
+    public function delete(User $user)
+    {
         $user->delete();
         return redirect(route('user.list'));
     }

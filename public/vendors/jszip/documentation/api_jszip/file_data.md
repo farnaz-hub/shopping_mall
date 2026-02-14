@@ -8,27 +8,27 @@ __Description__ : Add (or update) a file to the zip file.
 
 __Arguments__
 
-name                | type    | description
---------------------|---------|------------
-name                | string  | the name of the file. You can specify folders in the name : the folder separator is a forward slash ("/").
-data                | String/ArrayBuffer/Uint8Array/Buffer | the content of the file.
-options             | object  | the options.
+ name    | type                                 | description                                                                                                
+---------|--------------------------------------|------------------------------------------------------------------------------------------------------------
+ name    | string                               | the name of the file. You can specify folders in the name : the folder separator is a forward slash ("/"). 
+ data    | String/ArrayBuffer/Uint8Array/Buffer | the content of the file.                                                                                   
+ options | object                               | the options.                                                                                               
 
 Content of `options` :
 
-name        | type    | default | description
-------------|---------|---------|------------
-base64      | boolean | `false` | set to `true` if the data is base64 encoded. For example image data from a `<canvas>` element. Plain text and HTML do not need this option.
-binary      | boolean | `false` | set to `true` if the data should be treated as raw content, `false` if this is a text. If base64 is used, this defaults to `true`, if the data is not a string, this will be set to `true`.
-date        | date    | the current date | the last modification date.
-compression | string  | null    | If set, specifies compression method to use for this specific file. If not, the default file compression will be used, see [generate(options)]({{site.baseurl}}/documentation/api_jszip/generate.html).
-compressionOptions | object | `null` | the options to use when compressing the file, see [generate(options)]({{site.baseurl}}/documentation/api_jszip/generate.html).
-comment     | string  | null    | The comment for this file.
-optimizedBinaryString | boolean | `false` | Set to true if (and only if) the input is a "binary string" and has already been prepared with a 0xFF mask.
-createFolders | boolean | `false` | Set to true if folders in the file path should be automatically created, otherwise there will only be virtual folders that represent the path to the file.
-unixPermissions | 16 bits number | null    | The UNIX permissions of the file, if any.
-dosPermissions  | 6 bits number  | null    | The DOS permissions of the file, if any.
-dir             | boolean        | false   | Set to true if this is a directory and content should be ignored.
+ name                  | type           | default          | description                                                                                                                                                                                             
+-----------------------|----------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ base64                | boolean        | `false`          | set to `true` if the data is base64 encoded. For example image data from a `<canvas>` element. Plain text and HTML do not need this option.                                                             
+ binary                | boolean        | `false`          | set to `true` if the data should be treated as raw content, `false` if this is a text. If base64 is used, this defaults to `true`, if the data is not a string, this will be set to `true`.             
+ date                  | date           | the current date | the last modification date.                                                                                                                                                                             
+ compression           | string         | null             | If set, specifies compression method to use for this specific file. If not, the default file compression will be used, see [generate(options)]({{site.baseurl}}/documentation/api_jszip/generate.html). 
+ compressionOptions    | object         | `null`           | the options to use when compressing the file, see [generate(options)]({{site.baseurl}}/documentation/api_jszip/generate.html).                                                                          
+ comment               | string         | null             | The comment for this file.                                                                                                                                                                              
+ optimizedBinaryString | boolean        | `false`          | Set to true if (and only if) the input is a "binary string" and has already been prepared with a 0xFF mask.                                                                                             
+ createFolders         | boolean        | `false`          | Set to true if folders in the file path should be automatically created, otherwise there will only be virtual folders that represent the path to the file.                                              
+ unixPermissions       | 16 bits number | null             | The UNIX permissions of the file, if any.                                                                                                                                                               
+ dosPermissions        | 6 bits number  | null             | The DOS permissions of the file, if any.                                                                                                                                                                
+ dir                   | boolean        | false            | Set to true if this is a directory and content should be ignored.                                                                                                                                       
 
 You shouldn't update the data given to this method : it is kept as it so any
 update will impact the stored data.

@@ -22,9 +22,9 @@ class SaveCustomerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'mobile' => 'required|min:10|max:10',
-            'password' => 'required|min:5|max:7',
+//            'name' => 'required',
+//            'mobile' => 'required|min:10|max:10',
+//            'password' => 'required|min:5|max:7',
         ];
     }
 }

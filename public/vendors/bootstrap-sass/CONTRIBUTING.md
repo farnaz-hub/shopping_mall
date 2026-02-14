@@ -7,7 +7,6 @@ For usage instructions, see the [README](/README.md).
 
 If something is broken in the converter, it's preferable to update the converter along with the asset itself.
 
-
 ## Bugs
 
 A bug is a _demonstrable problem_ that is caused by the code in the
@@ -52,7 +51,6 @@ Example:
 
 **[File a bug report](https://github.com/twbs/bootstrap-sass/issues/)**
 
-
 ## Pull requests
 
 **We will not accept pull requests that modify the SCSS beyond fixing bugs caused by *our* code!**
@@ -61,7 +59,8 @@ We use a [converter script][converter-readme] to automatically convert upstream 
 
 Issues related to styles or javascript but unrelated to the conversion process should go to [twbs/bootstrap][upstream].
 
-Pull requests that fix bugs caused by our code should not modify the SCSS directly, but should patch the converter instead.
+Pull requests that fix bugs caused by our code should not modify the SCSS directly, but should patch the converter
+instead.
 
 Good pull requests - patches, improvements, new features - are a fantastic
 help. They should remain focused in scope and avoid containing unrelated
@@ -83,4 +82,5 @@ discussion on topic and respect the opinions of others.
 *props [html5-boilerplate](https://github.com/h5bp/html5-boilerplate/blob/master/CONTRIBUTING.md)*
 
 [upstream]: https://github.com/twbs/bootstrap
+
 [converter-readme]: https://github.com/twbs/bootstrap-sass/blob/master/README.md#upstream-converter

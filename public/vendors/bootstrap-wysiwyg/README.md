@@ -5,7 +5,8 @@ bootstrap-wysiwyg
 
 A tiny Bootstrap and jQuery based WYSIWYG rich text editor based on the browser function execCommand.
 
-This project was originally built for [MindMup](http://www.mindmup.com) and has now been adapted and modified to suit a wide range of projects.
+This project was originally built for [MindMup](http://www.mindmup.com) and has now been adapted and modified to suit a
+wide range of projects.
 
 Development is active, and ongoing.
 
@@ -13,10 +14,12 @@ Features
 -----------
 
 * Automatically binds standard hotkeys for common operations on Mac and Windows
-* Allows a custom built toolbar with no magic markup generators enabling the web site to use all the goodness of Bootstrap
+* Allows a custom built toolbar with no magic markup generators enabling the web site to use all the goodness of
+  Bootstrap
 * Does not force any styling - it's all up to you
-* Uses standard browser features, no magic non-standard code, toolbar and keyboard configurable to execute any supported [browser command](https://developer.mozilla.org/en/docs/Rich-Text_Editing_in_Mozilla
-)
+* Uses standard browser features, no magic non-standard code, toolbar and keyboard configurable to execute any
+  supported [browser command](https://developer.mozilla.org/en/docs/Rich-Text_Editing_in_Mozilla
+  )
 * Does not create a separate frame, backup text areas etc - instead keeps it simple and runs everything inline in a DIV
 * (Optionally) cleans up trailing whitespace and empty divs and spans
 * Requires a modern browser (See SUPPORTED)
@@ -41,7 +44,9 @@ Don't forget to style your editor div:
 #editor {overflow:scroll; max-height:300px}
 ```
 
-If you want to use this for a mobile web site, make sure to read about [how to style it](https://github.com/mindmup/bootstrap-wysiwyg#styling-for-mobile-devices) to optimise mobile screen usage and experience (please note that this demo page isn't optimised for mobile access).
+If you want to use this for a mobile web site, make sure to read
+about [how to style it](https://github.com/mindmup/bootstrap-wysiwyg#styling-for-mobile-devices) to optimise mobile
+screen usage and experience (please note that this demo page isn't optimised for mobile access).
 
 Optionally, also create a toolbar (see the source of this page for an example):
 
@@ -58,7 +63,9 @@ In the toolbar, execute simple commands by adding a data-edit attribute to a lin
 <a data-edit="bold">...</a>
 ```
 
-execute more complex commands by adding an argument after a blank or providing an input with a data-edit command (the input value is used as an argument). In case of file inputs, the file contents are read in using the FileReader API and used as the command value.
+execute more complex commands by adding an argument after a blank or providing an input with a data-edit command (the
+input value is used as an argument). In case of file inputs, the file contents are read in using the FileReader API and
+used as the command value.
 
 ```html
 <a data-edit="fontName Arial">...</a>
@@ -76,8 +83,10 @@ $('#editor').cleanHtml()
 
 Customising
 -----------
-You can assign commands to hotkeys and toolbar links. For a toolbar link, just put the execCommand command name into a data-edit attribute.
-For more info on execCommand, see the [QuirksMode](http://www.quirksmode.org/dom/execCommand.html) and [Mozilla Developer](https://developer.mozilla.org/en/docs/Rich-Text_Editing_in_Mozilla) documentation.
+You can assign commands to hotkeys and toolbar links. For a toolbar link, just put the execCommand command name into a
+data-edit attribute.
+For more info on execCommand, see the [QuirksMode](http://www.quirksmode.org/dom/execCommand.html)
+and [Mozilla Developer](https://developer.mozilla.org/en/docs/Rich-Text_Editing_in_Mozilla) documentation.
 
 ```html
 <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
@@ -98,7 +107,9 @@ input value as the command argument
 ```html
 <input type="text" data-edit="createLink">
 ```
-If the input type is file, when a file is selected the contents will be read in using the FileReader API and the data URL will be used as the argument
+
+If the input type is file, when a file is selected the contents will be read in using the FileReader API and the data
+URL will be used as the argument
 
 ```html
 <input type="file" data-edit="insertImage">
@@ -122,7 +133,9 @@ Events
 ------
 
 #### Change
+
 Fired whenever anything changes. See this example [events.html](examples/events.html)
+
 ```javascript
 $('#editor').wysiwyg().on('change', function(){
 	alert('something has been changed on the editor');
@@ -132,12 +145,17 @@ $('#editor').wysiwyg().on('change', function(){
 Styling for mobile devices
 --------------------------
 
-This editor should work pretty well with mobile devices, but you'll need to consider the following things when styling it:
+This editor should work pretty well with mobile devices, but you'll need to consider the following things when styling
+it:
+
 - keyboards on mobile devices take a huge part of the screen
-- having to scroll the screen to touch the toolbar can cause the editing component to lose focus, and the mobile device keyboard might go away
-- mobile devices tend to move the screen viewport around to ensure that the focused element is shown, so it's best that the edit box is glued to the top
+- having to scroll the screen to touch the toolbar can cause the editing component to lose focus, and the mobile device
+  keyboard might go away
+- mobile devices tend to move the screen viewport around to ensure that the focused element is shown, so it's best that
+  the edit box is glued to the top
 
 For the content attachment editor on MindMup, we apply the following rules to mobile device styling:
+
 - edit box is glued to the top, so the focus doesn't jump around
 - toolbar is below the edit box
 - on portrait screens, edit box size is 50% of the screen
@@ -146,15 +164,16 @@ For the content attachment editor on MindMup, we apply the following rules to mo
 
 Dependencies
 ------------
+
 * [jQuery](http://jquery.com/)
 * [jQuery HotKeys](https://github.com/jeresig/jquery.hotkeys)
 * [Bootstrap](http://twitter.github.com/bootstrap/)
 
 Thanks to
 ------------
-@gojko 					@mindmup			@jordanh
-@beatnbite				@brutuscat			@VictorBjelkholm
-@mrmrs 					@tilleryd 			@pnevels
+@gojko @mindmup @jordanh
+@beatnbite @brutuscat @VictorBjelkholm
+@mrmrs @tilleryd @pnevels
 
 History
 ------------

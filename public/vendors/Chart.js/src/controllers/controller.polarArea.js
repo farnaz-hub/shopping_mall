@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(Chart) {
+module.exports = function (Chart) {
 
 	var helpers = Chart.helpers;
 
@@ -18,7 +18,7 @@ module.exports = function(Chart) {
 		},
 
 		aspectRatio: 1,
-		legendCallback: function(chart) {
+		legendCallback: function (chart) {
 			var text = [];
 			text.push('<ul class="' + chart.id + '-legend">');
 
@@ -41,10 +41,10 @@ module.exports = function(Chart) {
 		},
 		legend: {
 			labels: {
-				generateLabels: function(chart) {
+				generateLabels: function (chart) {
 					var data = chart.data;
 					if (data.labels.length && data.datasets.length) {
-						return data.labels.map(function(label, i) {
+						return data.labels.map(function (label, i) {
 							var meta = chart.getDatasetMeta(0);
 							var ds = data.datasets[0];
 							var arc = meta.data[i];
@@ -72,7 +72,7 @@ module.exports = function(Chart) {
 				}
 			},
 
-			onClick: function(e, legendItem) {
+			onClick: function (e, legendItem) {
 				var index = legendItem.index;
 				var chart = this.chart;
 				var i, ilen, meta;
@@ -89,10 +89,10 @@ module.exports = function(Chart) {
 		// Need to override these to give a nice default
 		tooltips: {
 			callbacks: {
-				title: function() {
+				title: function () {
 					return '';
 				},
-				label: function(tooltipItem, data) {
+				label: function (tooltipItem, data) {
 					return data.labels[tooltipItem.index] + ': ' + tooltipItem.yLabel;
 				}
 			}
@@ -122,12 +122,12 @@ module.exports = function(Chart) {
 
 			meta.count = me.countVisibleElements();
 
-			helpers.each(meta.data, function(arc, index) {
+			helpers.each(meta.data, function (arc, index) {
 				me.updateElement(arc, index, reset);
 			});
 		},
 
-		updateElement: function(arc, index, reset) {
+		updateElement: function (arc, index, reset) {
 			var me = this;
 			var chart = me.chart;
 			var chartArea = chart.chartArea;
@@ -185,16 +185,16 @@ module.exports = function(Chart) {
 			arc.pivot();
 		},
 
-		removeHoverStyle: function(arc) {
+		removeHoverStyle: function (arc) {
 			Chart.DatasetController.prototype.removeHoverStyle.call(this, arc, this.chart.options.elements.arc);
 		},
 
-		countVisibleElements: function() {
+		countVisibleElements: function () {
 			var dataset = this.getDataset();
 			var meta = this.getMeta();
 			var count = 0;
 
-			helpers.each(meta.data, function(element, index) {
+			helpers.each(meta.data, function (element, index) {
 				if (!isNaN(dataset.data[index]) && !element.hidden) {
 					count++;
 				}
@@ -203,7 +203,7 @@ module.exports = function(Chart) {
 			return count;
 		},
 
-		calculateCircumference: function(value) {
+		calculateCircumference: function (value) {
 			var count = this.getMeta().count;
 			if (count > 0 && !isNaN(value)) {
 				return (2 * Math.PI) / count;

@@ -1,9 +1,9 @@
 "use strict";
 
-module.exports = function() {
+module.exports = function () {
 
 	//Occupy the global variable of Chart, and create a simple base class
-	var Chart = function(context, config) {
+	var Chart = function (context, config) {
 		var me = this;
 		var helpers = Chart.helpers;
 		me.config = config;
@@ -51,7 +51,7 @@ module.exports = function() {
 		}
 
 		// Always bind this so that if the responsive state changes we still work
-		helpers.addResizeListener(context.canvas.parentNode, function() {
+		helpers.addResizeListener(context.canvas.parentNode, function () {
 			if (me.controller && me.controller.config.options.responsive) {
 				me.controller.resize();
 			}
@@ -85,7 +85,7 @@ module.exports = function() {
 			elements: {},
 
 			// Legend callback string
-			legendCallback: function(chart) {
+			legendCallback: function (chart) {
 				var text = [];
 				text.push('<ul class="' + chart.id + '-legend">');
 				for (var i = 0; i < chart.data.datasets.length; i++) {

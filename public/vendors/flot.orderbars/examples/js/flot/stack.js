@@ -35,9 +35,9 @@
 
  */
 
-(function($) {
+(function ($) {
     var options = {
-        series: { stack: null } // or number/string
+        series: {stack: null} // or number/string
     };
 
     function init(plot) {
@@ -88,23 +88,20 @@
                     for (m = 0; m < ps; ++m)
                         newpoints.push(points[i + m]);
                     i += ps;
-                }
-                else if (j >= otherpoints.length) {
+                } else if (j >= otherpoints.length) {
                     // for lines, we can't use the rest of the points
                     if (!withlines) {
                         for (m = 0; m < ps; ++m)
                             newpoints.push(points[i + m]);
                     }
                     i += ps;
-                }
-                else if (otherpoints[j] == null) {
+                } else if (otherpoints[j] == null) {
                     // oops, got a gap
                     for (m = 0; m < ps; ++m)
                         newpoints.push(null);
                     fromgap = true;
                     j += otherps;
-                }
-                else {
+                } else {
                     // cases where we actually got two points
                     px = points[i + keyOffset];
                     py = points[i + accumulateOffset];
@@ -121,8 +118,7 @@
 
                         i += ps;
                         j += otherps;
-                    }
-                    else if (px > qx) {
+                    } else if (px > qx) {
                         // we got past point below, might need to
                         // insert interpolated extra point
                         if (withlines && i > 0 && points[i - ps] != null) {
@@ -135,8 +131,7 @@
                         }
 
                         j += otherps;
-                    }
-                    else { // px < qx
+                    } else { // px < qx
                         if (fromgap && withlines) {
                             // if we come from a gap, we just skip this point
                             i += ps;
