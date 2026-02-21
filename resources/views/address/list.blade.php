@@ -3,60 +3,53 @@
     <a href="{{route('address.add', ['customer' => $customer])}}" onclick="addAddress(this);return false;"
        class="btn btn-success m-5">
         <i class="fa fa-plus"></i>
-        Adding address
+        @lang('Adding address')
     </a>
-
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th class="text-center">Title</th>
-                <th class="text-center">Address</th>
-                <th class="text-center">Postal Code</th>
-                <th class="text-center">Unit</th>
-                <th class="text-center">Operations</th>
+                <th class="text-center">@lang('Title')</th>
+                <th class="text-center">@lang('Address')</th>
+                <th class="text-center">@lang('Postal Code')</th>
+                <th class="text-center">@lang('Unit')</th>
+                <th class="text-center">@lang('Operations')</th>
             </tr>
             </thead>
-
             @foreach($customer->addresses as $address)
                 <tr>
-                    <td class="text-center"> {{$address->title}} </td>
-                    <td class="text-center"> {{$address->address}} </td>
-                    <td class="text-center"> {{$address->postal_code}} </td>
-                    <td class="text-center"> {{$address->unit}} </td>
+                    <td class="text-center">{{$address->title}}</td>
+                    <td class="text-center">{{$address->address}}</td>
+                    <td class="text-center">{{$address->postal_code}}</td>
+                    <td class="text-center">{{$address->unit}}</td>
                     <td class="text-center">
                         <a href="{{route('address.show', ['address' => $address])}}"
-                           onclick="showAddress(this);return false;" class="btn btn-warning btn-sm fa fa-edit">Edit</a>
+                           onclick="showAddress(this);return false;"
+                           class="btn btn-warning btn-sm fa fa-edit">@lang('Edit')</a>
                         <a href="{{route('address.delete', ['address' => $address])}}"
-                           onclick="removeAddress(this);return false;" class="btn btn-danger btn-sm fa fa-minus-circle">Delete</a>
+                           onclick="removeAddress(this);return false;"
+                           class="btn btn-danger btn-sm fa fa-minus-circle">@lang('Delete')</a>
                     </td>
                 </tr>
             @endforeach
         </table>
-
-
         <div id="addAddress" class="modal fade" role="dialog">
             <div class="modal-dialog">
-                <!-- Modal content -->
                 <div class="modal-content">
-
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Adding Address</h4>
+                        <h4 class="modal-title">@lang('Adding Address')</h4>
                     </div>
-
                     <div class="modal-body">
                     </div>
-
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <script>
     function addAddress(el) {
@@ -68,7 +61,6 @@
             }
         })
     }
-
 
     function saveAddress() {
         $.ajax({
@@ -87,7 +79,6 @@
         })
     }
 
-
     function showAddress(el) {
         $.ajax({
             url: $(el).attr('href'),
@@ -97,7 +88,6 @@
             }
         })
     }
-
 
     function updateAddress() {
         $.ajax({
@@ -115,7 +105,6 @@
             }
         })
     }
-
 
     function removeAddress(el) {
         $.ajax({

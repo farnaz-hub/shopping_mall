@@ -2,7 +2,6 @@
 @section('content')
     <div class="container-fluid">
         <a href="{{route('ticket.add')}}" class="btn btn-info">ADD</a>
-
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
@@ -17,7 +16,6 @@
                 <th class="text-center">Operations</th>
             </tr>
             </thead>
-
             @foreach($tickets as $ticket)
                 <tr>
                     <td class="text-center">{{$ticket->title}}</td>
@@ -63,15 +61,12 @@
 <div id="showMessage" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Adding Message</h4>
             </div>
-
             <div class="modal-body">
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>

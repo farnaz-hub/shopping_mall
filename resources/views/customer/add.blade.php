@@ -80,7 +80,7 @@
 @endsection
 
 
-{{--            <div class="col-md-6 col-sm-6 col-xs-12 form-group">--}}
+{{--            <div class="col-md-6 col-sm-6 col-xs-12 form-group">--}}            {{-- Error Alerts --}}}
 {{--                <label>Name</label>--}}
 {{--                <input name="name" type="text" id="name" placeholder="name"--}}
 {{--                       class="form-control @error('name') is-invalid @enderror">--}}

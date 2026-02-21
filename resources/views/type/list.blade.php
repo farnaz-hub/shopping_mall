@@ -2,7 +2,6 @@
 @section('content')
     <div>
         <a href="{{route('type.add')}}" class="btn btn-info">ADD</a>
-
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
@@ -10,7 +9,6 @@
                 <th class="text-center">Operations</th>
             </tr>
             </thead>
-
             @foreach($types as $type)
                 <tr>
                     <td class="text-center">{{$type->title}}</td>

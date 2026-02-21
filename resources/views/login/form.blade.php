@@ -27,33 +27,26 @@
 </head>
 <body>
 <div class="login-wrapper">
-    <form id="login-form" class="login_box" method="post" action="{{route('login.login')}}">
+    <form id="login-form" class="login_box" method="post" action="{{route('login')}}">
         @csrf
         <h2 class="text-center">Login</h2>
-
         <div class="form-group">
             <label>Username</label>
             <input type="text" name="username" class="form-control text-center" required>
         </div>
-
         <div class="clearfix"></div>
-
         <div class="form-group">
             <label>Password</label>
             <input type="password" name="password" class="form-control text-center" required>
         </div>
-
         <div class="clearfix"></div>
-
         <div class="form-group">
             <label>
                 <input type="checkbox" name="remember" class="form-check-input" value="1">
                 Remember Me
             </label>
         </div>
-
         <div class="clearfix"></div>
-
         <button class="btn btn-round btn-block" type="submit">Login</button>
     </form>
 </div>

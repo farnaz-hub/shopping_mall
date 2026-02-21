@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="mb-2 mt-2"><a href="{{route('customer.add')}}" class="btn btn-info fa fa-plus">ADD</a></div>
+    <div class="mb-2 mt-2"><a href="{{route('customer.add')}}" class="btn btn-info fa fa-plus">@lang('ADD')</a></div>
     <table class="table table-striped">
         <thead class="table-dark">
         <tr>
@@ -54,19 +54,15 @@
     {{$customers->onEachSide(5)->links()}}
     <div id="listAddress" class="modal fade" role="dialog">               {{-- Address Modal --}}
         <div class="modal-dialog">
-            <!-- Modal content -->
             <div class="modal-content">
-
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Addresses</h4>
+                    <h4 class="modal-title">@lang('Addresses')</h4>
                 </div>
-
                 <div class="modal-body">
                 </div>
-
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
                 </div>
             </div>
         </div>

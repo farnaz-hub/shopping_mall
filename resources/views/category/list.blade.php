@@ -2,7 +2,6 @@
 @section('content')
     <div>
         <a href="{{route('category.add')}}" class="btn btn-info">ADD</a>
-
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
@@ -11,7 +10,6 @@
                 <th class="text-center">Operations</th>
             </tr>
             </thead>
-
             @foreach($categories as $category)
                 <tr>
                     <td class="text-center">{{$category->type->title}}</td>

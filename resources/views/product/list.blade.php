@@ -1,7 +1,6 @@
 @extends('layout')
 @section('content')
     <div class="mb-2 mt-2"><a href="{{route('product.add')}}" class="btn btn-info">ADD</a></div>
-
     <table class="table table-striped">
         <thead class="table-dark">
         <tr>
@@ -16,7 +15,6 @@
             <th class="text-center">Operations</th>
         </tr>
         </thead>
-
         @foreach($products as $product)
             <tr>
                 <td class="text-center">{{$product->title}}</td>

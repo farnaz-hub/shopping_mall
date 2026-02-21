@@ -20,5 +20,12 @@
     "Operations": "عملیات ها",
     "Edit": "ویرایش",
     "Delete": "حذف",
-    "Addresses": "آدرس ها"
+    "Addresses": "آدرس ها",
+    "Address": "آدرس",
+    "Title": "عنوان",
+    "Submit": "ثبت",
+    "Postal Code": "کد پستی",
+    "Unit": "واحد",
+    "Adding address": "ثبت آدرس جدید",
+    "Close": "بستن"
 }

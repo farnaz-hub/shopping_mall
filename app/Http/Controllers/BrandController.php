@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Services\BrandService;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
+    protected $service;
+
+    public function __construct(BrandService $service)
+    {
+        $this->service = $service;
+    }
+
+
     public function add()
     {
         return view('brand.add');
@@ -15,9 +24,7 @@ class BrandController extends Controller
 
     public function save(Request $request)
     {
-        Brand::create([
-            'title' => $request->get('title'),
-        ]);
+        $this->service->create($request->all());
 
         return redirect(route('brand.list'));
     }
@@ -25,7 +32,7 @@ class BrandController extends Controller
 
     public function list()
     {
-        $brands = Brand::all();
+        $brands = $this->service->list();
         return view('brand.list', compact('brands'));
     }
 
@@ -38,8 +45,7 @@ class BrandController extends Controller
 
     public function update(Request $request, Brand $brand)
     {
-        $brand->title = $request->get('title');
-        $brand->update();
+        $this->service->update($brand, $request->all());
 
         return redirect(route('brand.list'));
     }
@@ -47,7 +53,7 @@ class BrandController extends Controller
 
     public function delete(Brand $brand)
     {
-        $brand->delete();
+        $this->service->delete($brand);
         return redirect(route('brand.list'));
     }
 }
