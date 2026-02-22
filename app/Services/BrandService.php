@@ -8,7 +8,7 @@ class BrandService
 {
     public function create(array $data)
     {
-        return Brand::create([
+        return Brand::query()->create([
             'title' => $data['title'],
         ]);
     }
@@ -20,7 +20,7 @@ class BrandService
     }
 
 
-    public function update(Brand $brand, array $data)
+    public function update(Brand $brand, array $data): Brand
     {
         $brand->update([
             'title' => $data['title'],

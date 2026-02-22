@@ -3,17 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BrandResource;
 use App\Models\Brand;
 use App\Services\BrandService;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
-    protected $service;
-
-    public function __construct(BrandService $service)
+    public function __construct(public BrandService $service)
     {
-        $this->service = $service;
     }
 
 
@@ -30,10 +28,12 @@ class BrandController extends Controller
 
     public function list()
     {
-        return [
+        $brands = $this->service->list();
+
+        return response()->json([
             'success' => true,
-            'data' => $this->service->list()
-        ];
+            'data' => BrandResource::collection($brands)
+        ]);
     }
 
 

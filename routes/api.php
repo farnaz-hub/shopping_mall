@@ -12,8 +12,10 @@ Route::middleware('auth:sanctum')->post('/logout', [\App\Http\Controllers\Api\Lo
 
 //brand
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/brand/save', [\App\Http\Controllers\Api\BrandController::class, 'save']);
-    Route::get('/brand/list', [\App\Http\Controllers\Api\BrandController::class, 'list']);
-    Route::post('/brand/update/{brand}', [\App\Http\Controllers\Api\BrandController::class, 'update']);
-    Route::delete('/brand/delete/{brand}', [\App\Http\Controllers\Api\BrandController::class, 'delete']);
+    Route::prefix('brand')->controller(\App\Http\Controllers\Api\BrandController::class)->group(function () {
+        Route::post('/save', 'save');
+        Route::get('/list', 'list');
+        Route::post('/update/{brand}', 'update');
+        Route::delete('/delete/{brand}', 'delete');
+    });
 });
