@@ -6,6 +6,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//test
+Route::get('/facade', [\App\Http\Controllers\WelcomeController::class, 'greeting'])->name('greeting');
+Route::get('/test', function () {return \App\Facades\Brand::hello();});
+
+
 //login
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'form'])->name('login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
