@@ -1,6 +1,9 @@
 @extends('layout')
 @section('content')
-    <div class="mb-2 mt-2"><a href="{{route('user.add')}}" class="btn btn-info">ADD</a></div>
+    <div class="d-flex mt-2 mb-2">
+        <a href="{{route('user.add')}}" class="btn btn-info me-2">ADD</a>
+        <a href="{{route('show_form')}}" class="btn btn-success">Import User</a>
+    </div>
     <table class="table table-striped">
         <thead class="table-dark">
         <tr>
@@ -25,8 +28,8 @@
                 <td class="text-center">{{$user->gender}}</td>
                 <td class="text-center">{{$user->birth_date}}</td>
                 <td class="text-center">{{$user->national_code}}</td>
-                <td class="text-center">{{$user->province->name}}</td>
-                <td class="text-center">{{$user->city->name}}</td>
+                <td class="text-center">{{$user->province?->name}}</td>
+                <td class="text-center">{{$user->city?->name}}</td>
                 <td class="text-center">{{$user->job}}</td>
                 <td class="text-center">{{$user->username}}</td>
                 <td class="text-center">
@@ -38,4 +41,5 @@
             </tr>
         @endforeach
     </table>
+    {{$users->onEachSide(5)->links()}}
 @endsection

@@ -34,7 +34,7 @@ class ProductController extends Controller
 
     public function list()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('product.list', compact('products'));
     }
 

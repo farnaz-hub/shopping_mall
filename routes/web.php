@@ -6,11 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//test
-Route::get('/facade', [\App\Http\Controllers\WelcomeController::class, 'greeting'])->name('greeting');
-Route::get('/test', function () {return \App\Facades\Brand::hello();});
-
-
 //login
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'form'])->name('login');
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login.login');
@@ -116,4 +111,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/message/save/{ticket}', [\App\Http\Controllers\MessageController::class, 'save'])->name('message.save');
     Route::get('/message/{ticket}', [\App\Http\Controllers\MessageController::class, 'list'])->name('message.list');
     Route::delete('/message/delete/{message}', [\App\Http\Controllers\MessageController::class, 'delete'])->name('message.delete');
+
+
+    //facade
+    Route::get('/facade', [\App\Http\Controllers\WelcomeController::class, 'greeting'])->name('greeting');
+    Route::get('/test', function () {
+        return \App\Facades\Brand::hello();
+    });
+
+
+    //queue
+    Route::get('/import', [\App\Http\Controllers\UserImportController::class, 'show_form'])->name('show_form');
+    Route::post('/import', [\App\Http\Controllers\UserImportController::class, 'import'])->name('import');
 });
